@@ -68,10 +68,21 @@ local function selectLoadConfigCapacity(originalCapacity, settings, modelName, c
     -- model specific override
     local modelConfig = settings[modelName]
     if type(modelConfig.loadConfigs) == "table" then
-      -- TODO support single value if all are equal
-      -- TODO support _all key as fallback for type
-      if modelConfig.loadConfigs[lowerType] and modelConfig.loadConfigs[lowerType][index] then
-        return modelConfig.loadConfigs[lowerType][index] * 4
+      if modelConfig.loadConfigs[lowerType] then
+        if type(modelConfig.loadConfigs[lowerType]) == "table" and modelConfig.loadConfigs[lowerType][index] then
+          return modelConfig.loadConfigs[lowerType][index] * 4
+        end
+        if modelConfig.loadConfigs[lowerType] then
+          return modelConfig.loadConfigs[lowerType] * 4
+        end
+      end
+      if modelConfig.loadConfigs._all then
+        if type(modelConfig.loadConfigs_all) == "table" and modelConfig.loadConfigs_all[index] then
+          return modelConfig.loadConfigs_all[index] * 4
+        end
+        if modelConfig.loadConfigs_all then
+          return modelConfig.loadConfigs_all * 4
+        end
       end
     end
   end

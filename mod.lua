@@ -39,6 +39,7 @@ function data()
     },
     runFn = function()
       local balancingData = balancing.data
+      -- TODO do not only use them as fallback, use them as general multiplier
       balancingData._fallbacks = defaultSettings
 
       addModifier("loadModel", function(fileName, data)
