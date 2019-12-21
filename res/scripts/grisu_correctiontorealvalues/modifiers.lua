@@ -7,35 +7,34 @@
 modifiers = {}
 
 ---@param settings table<string, table>
----@param originalCapacity number
 ---@param carrier string @example AIR
 ---@param loadType string
 ---@return number
-local function selectFallbackMultiplier(originalCapacity, settings, carrier, loadType)
-  local lowerType = loadType:lower()
-  local lowerCarrier = carrier:lower()
-  local fallbacks = settings._fallbacks.multipliers
+local function selectMultiplier(settings, carrier, loadType)
+  loadType = loadType:lower()
+  carrier = carrier:lower()
+  local multipliers = settings._multipliers.capacity
 
-  if fallbacks[lowerCarrier] then
-    local carrierSpecific = fallbacks[lowerCarrier]
+  if multipliers[carrier] then
+    local carrierSpecific = multipliers[carrier]
     -- carrier and type specific fallback
-    if carrierSpecific[lowerType] then
-      return originalCapacity * carrierSpecific[lowerType]
+    if carrierSpecific[loadType] then
+      return carrierSpecific[loadType]
     end
     -- fallback to carrier _all
     if carrierSpecific._all then
-      return originalCapacity * carrierSpecific._all
+      return carrierSpecific._all
     end
     -- fallthrough to _all fallback
   end
 
   -- type specific fallback
-  if fallbacks._all[lowerType] then
-    return originalCapacity * fallbacks._all[lowerType]
+  if multipliers._all[loadType] then
+    return multipliers._all[loadType]
   end
 
   -- last fallback
-  return originalCapacity * fallbacks._all._all
+  return multipliers._all._all
 end
 
 ---@param settings table<string, table>
@@ -45,49 +44,51 @@ end
 ---@param loadType string
 ---@return number
 local function selectCapacity(originalCapacity, settings, modelName, carrier, loadType)
-  local lowerType = loadType:lower()
+  loadType = loadType:lower()
+  local multiplier = selectMultiplier(settings, carrier, loadType)
 
   if settings[modelName] then
     -- model specific override
     local modelConfig = settings[modelName]
     if type(modelConfig.capacities) == "table" then
       -- TODO support _all key as fallback for type
-      if modelConfig.capacities[lowerType] then
-        return modelConfig.capacities[lowerType] * 4
+      if modelConfig.capacities[loadType] then
+        return modelConfig.capacities[loadType] * multiplier
       end
     end
   end
 
-  return selectFallbackMultiplier(originalCapacity, settings, carrier, loadType)
+  return originalCapacity * multiplier
 end
 
 local function selectLoadConfigCapacity(originalCapacity, settings, modelName, carrier, loadType, index)
-  local lowerType = loadType:lower()
+  loadType = loadType:lower()
+  local multiplier = selectMultiplier(settings, carrier, loadType)
 
   if settings[modelName] then
     -- model specific override
     local modelConfig = settings[modelName]
     if type(modelConfig.loadConfigs) == "table" then
-      if modelConfig.loadConfigs[lowerType] then
-        if type(modelConfig.loadConfigs[lowerType]) == "table" and modelConfig.loadConfigs[lowerType][index] then
-          return modelConfig.loadConfigs[lowerType][index] * 4
+      if modelConfig.loadConfigs[loadType] then
+        if type(modelConfig.loadConfigs[loadType]) == "table" and modelConfig.loadConfigs[loadType][index] then
+          return modelConfig.loadConfigs[loadType][index] * multiplier
         end
-        if modelConfig.loadConfigs[lowerType] then
-          return modelConfig.loadConfigs[lowerType] * 4
+        if modelConfig.loadConfigs[loadType] then
+          return modelConfig.loadConfigs[loadType] * multiplier
         end
       end
       if modelConfig.loadConfigs._all then
-        if type(modelConfig.loadConfigs_all) == "table" and modelConfig.loadConfigs_all[index] then
-          return modelConfig.loadConfigs_all[index] * 4
+        if type(modelConfig.loadConfigs._all) == "table" and modelConfig.loadConfigs._all[index] then
+          return modelConfig.loadConfigs._all[index] * multiplier
         end
-        if modelConfig.loadConfigs_all then
-          return modelConfig.loadConfigs_all * 4
+        if modelConfig.loadConfigs._all then
+          return modelConfig.loadConfigs._all * multiplier
         end
       end
     end
   end
 
-  return selectFallbackMultiplier(originalCapacity, settings, carrier, loadType)
+  return originalCapacity * multiplier
 end
 
 ---@param fileName string

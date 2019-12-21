@@ -7,14 +7,16 @@ local modifiers = balancing.modifiers
 local defaultSettings = {
   -- capacity multipliers
   multipliers = {
-    air = {
-      passengers = 4,
-      coal = 3,
-      _all = 3
-    },
-    _all = {
-      passengers = 4,
-      _all = 3
+    capacity = {
+      air = {
+        passengers = 4,
+        coal = 3,
+        _all = 3
+      },
+      _all = {
+        passengers = 4,
+        _all = 3
+      }
     }
   }
 }
@@ -39,8 +41,7 @@ function data()
     },
     runFn = function()
       local balancingData = balancing.data
-      -- TODO do not only use them as fallback, use them as general multiplier
-      balancingData._fallbacks = defaultSettings
+      balancingData._multipliers = defaultSettings.multipliers
 
       addModifier("loadModel", function(fileName, data)
         return modifiers.loadModel(fileName, data, balancingData)
