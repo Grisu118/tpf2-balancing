@@ -51,6 +51,7 @@ local function selectCapacity(originalCapacity, settings, modelName, carrier, lo
     -- model specific override
     local modelConfig = settings[modelName]
     if type(modelConfig.capacities) == "table" then
+      -- TODO support _all key as fallback for type
       if modelConfig.capacities[lowerType] then
         return modelConfig.capacities[lowerType] * 4
       end
@@ -67,6 +68,8 @@ local function selectLoadConfigCapacity(originalCapacity, settings, modelName, c
     -- model specific override
     local modelConfig = settings[modelName]
     if type(modelConfig.loadConfigs) == "table" then
+      -- TODO support single value if all are equal
+      -- TODO support _all key as fallback for type
       if modelConfig.loadConfigs[lowerType] and modelConfig.loadConfigs[lowerType][index] then
         return modelConfig.loadConfigs[lowerType][index] * 4
       end

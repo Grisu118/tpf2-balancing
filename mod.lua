@@ -1,19 +1,20 @@
-local balancing = require "grisu_balancing"
+local balancing = require "grisu_correctiontorealvalues"
 ---@type Modifiers
 local modifiers = balancing.modifiers
 
 ---@class Fallbacks
+-- TODO extend with settings similar to merk_modutil
 local defaultSettings = {
   -- capacity multipliers
   multipliers = {
     air = {
       passengers = 4,
-      coal = 2.5,
-      _all = 2.5
+      coal = 3,
+      _all = 3
     },
     _all = {
       passengers = 4,
-      _all = 2.5
+      _all = 3
     }
   }
 }
@@ -21,20 +22,20 @@ local defaultSettings = {
 function data()
   return {
     info = {
-      minorVersion = 1,
+      minorVersion = 0,
       severityAdd = "NONE",
       severityRemove = "NONE",
-      name = "Grisu's Balancing",
+      name = "Grisu's Balancing to real values",
       description = "TODO",
       authors = {
         {
           name = "Grisu118",
           role = "CREATOR",
+          tfnetId = "18977",
           text = ""
         }
       },
       tags = { "Script Mod" },
-      modid = "grisu118_balancing_0"
     },
     runFn = function()
       local balancingData = balancing.data

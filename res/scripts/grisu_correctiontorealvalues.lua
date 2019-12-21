@@ -3,7 +3,7 @@
 -- @copyright 2017, 2018, 2019, 2020
 -- @module grisu_balancing
 
-local grisu_balancing = {
+local grisuCorrectionToRealValues = {
   version = "0.0",
   dmp = function(...)
     local ok, inspect = pcall(require, "inspect")
@@ -24,7 +24,7 @@ local function createLogFn(prefix)
   return fn
 end
 
-local logFn = createLogFn("grisu_balancing")
+local logFn = createLogFn("grisu118_correctiontorealvalues")
 
 local function getPath()
   local function debugPath()
@@ -40,7 +40,7 @@ end
 
 getPath()
 
-logFn("init [", moduleFile, "] (Version ", grisu_balancing.version, ")")
+logFn("init [", moduleFile, "] (Version ", grisuCorrectionToRealValues.version, ")")
 
 local function doLoadFile(fileName)
   local f, err = loadfile(fileName)
@@ -51,19 +51,19 @@ local function doLoadFile(fileName)
   end
 end
 
-local data_prefix = modulePath .. "grisu_balancing/data/"
+local dataPrefix = modulePath .. "grisu_correctiontorealvalues/data/"
 
-local data_metatable = {
+local dataMetatable = {
   __index = function(t, key)
     local configKey = string.match(key, "res/models/model/(.+).mdl")
-    local vanillaFile = data_prefix .. "vanilla/" .. configKey .. ".lua"
+    local vanillaFile = dataPrefix .. "vanilla/" .. configKey .. ".lua"
     local data, err = doLoadFile(vanillaFile)
     if data then
       t[key] = data
       return t[key]
     end
     -- load mod data file
-    local modFile = data_prefix .. "mods/" .. configKey .. ".lua"
+    local modFile = dataPrefix .. "mods/" .. configKey .. ".lua"
     data, err = doLoadFile(modFile)
     if data then
       t[key] = data
@@ -74,24 +74,24 @@ local data_metatable = {
   end
 }
 
-grisu_balancing.data = {}
-setmetatable(grisu_balancing.data, data_metatable)
+grisuCorrectionToRealValues.data = {}
+setmetatable(grisuCorrectionToRealValues.data, dataMetatable)
 
-local grisu_balancing_metatable = {
+local grisuCorrectionToRealValuesMetatable = {
   __index = function(t, key)
-    local fileName = modulePath .. "grisu_balancing/" .. key .. ".lua"
+    local fileName = modulePath .. "grisu_correctiontorealvalues/" .. key .. ".lua"
     local data, err = doLoadFile(fileName)
     if data then
       t[key] = data
-      t[key].grisu_balancing = grisu_balancing
-      logFn("loaded module 'grisu_balancing.", key, "' [", fileName, "] (Version ", data.version or "0.0", ")")
+      t[key].grisu_balancing = grisuCorrectionToRealValues
+      logFn("loaded module 'grisu118_correctiontorealvalues.", key, "' [", fileName, "] (Version ", data.version or "0.0", ")")
       return t[key]
     else
-      logFn("can not load module 'grisu_balancing.", key, "'. Message: ", (err or ""))
+      logFn("can not load module 'grisu118_correctiontorealvalues.", key, "'. Message: ", (err or ""))
       return nil
     end
   end
 }
-setmetatable(grisu_balancing, grisu_balancing_metatable)
+setmetatable(grisuCorrectionToRealValues, grisuCorrectionToRealValuesMetatable)
 
-return grisu_balancing
+return grisuCorrectionToRealValues
