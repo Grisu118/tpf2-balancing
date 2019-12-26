@@ -1,12 +1,19 @@
 local balancing = require "grisu_correctiontorealvalues"
----@type Modifiers
-local modifiers = balancing.modifiers
+---@type Capacities
+local Capacities = balancing.capacities
+
+---@class BalancingData : table
+---@field _multipliers Multipliers
 
 ---@class Fallbacks
 -- TODO extend with settings similar to merk_modutil
 local defaultSettings = {
   -- capacity multipliers
+  ---@class Multipliers
+  ---@field loadSpeed number
+  ---@field capacity table
   multipliers = {
+    loadSpeed = 1,
     capacity = {
       air = {
         passengers = 4,
@@ -40,11 +47,26 @@ function data()
       tags = { "Script Mod" },
     },
     runFn = function()
+      ---@type BalancingData
       local balancingData = balancing.data
       balancingData._multipliers = defaultSettings.multipliers
 
+      ---@param fileName string the name of the .mdl file which is loaded
+      ---@param data any the data returned from the data function in the mdl file
       addModifier("loadModel", function(fileName, data)
-        return modifiers.loadModel(fileName, data, balancingData)
+        if type(data.metadata) == "table" and type(data.metadata.transportVehicle) == "table" then
+          local modelName = string.gsub(fileName, ".*(res/models/model/.+[.]mdl)", "%1")
+          local transportVehicle = data.metadata.transportVehicle
+
+          -- handle capacities
+          local capacities = Capacities.create(modelName, balancingData)
+          -- handle compartments
+          capacities:updateCompartments(transportVehicle)
+          -- handle compartmentsList
+          capacities:updateCompartmentLists(transportVehicle)
+
+        end
+        return data
       end)
     end
   }

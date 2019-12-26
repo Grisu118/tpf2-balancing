@@ -6,12 +6,13 @@ the aim of this mod is to use real values for capacity, power...
 This mod can be activated and deactivated at any time.
 
 ### Active features
-* passenger capacity set to real values (ongoing effort)
+* passenger capacity set to real values (balancing ongoing)
 
 ### Planned features
 * loadSpeed modifications
 * engine values modifications
 * availabilities modifications
+* emission modifications
 * ...
 
 ## Installation
