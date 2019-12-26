@@ -5,6 +5,8 @@ local Capacities = balancing.capacities
 local LoadSpeed = balancing.loadSpeed
 ---@type Availability
 local Availability = balancing.availability
+---@type Maintenance
+local Maintenance = balancing.maintenance
 
 ---@class BalancingData : table
 ---@field _multipliers Multipliers
@@ -15,9 +17,11 @@ local defaultSettings = {
   -- capacity multipliers
   ---@class Multipliers
   ---@field loadSpeed number
+  ---@field lifespan number
   ---@field capacity table
   multipliers = {
     loadSpeed = 1,
+    lifespan = 1,
     capacity = {
       air = {
         passengers = 4,
@@ -74,6 +78,8 @@ function data()
 
           local availability = Availability.create(modelName, balancingData)
           availability:update(data.metadata)
+          local maintenance = Maintenance.create(modelName, balancingData)
+          maintenance:update(data.metadata)
 
         end
         return data

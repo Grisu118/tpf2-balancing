@@ -9,6 +9,7 @@ This mod can be activated and deactivated at any time.
 * passenger capacity set to real values (balancing ongoing)
 * loadSpeed
 * availabilities
+* lifespan
 
 ### Planned features
 * engine values modifications

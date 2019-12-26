@@ -27,16 +27,13 @@ function Availability:update(metadata)
   if self.balancingData[self.modelName] then
     local modelConfig = self.balancingData[self.modelName]
     if type(modelConfig.availability) == "table" then
-      print("Update avail")
       if type(metadata.availability) ~= "table" then
         metadata.availability = {}
       end
       if modelConfig.availability.yearFrom then
-        print("Updated yearFrom")
         metadata.availability.yearFrom = modelConfig.availability.yearFrom
       end
       if modelConfig.availability.yearTo then
-        print("Updated yearTo")
         metadata.availability.yearTo = modelConfig.availability.yearTo
       end
     end
