@@ -7,11 +7,11 @@ This mod can be activated and deactivated at any time.
 
 ### Active features
 * passenger capacity set to real values (balancing ongoing)
+* loadSpeed
+* availabilities
 
 ### Planned features
-* loadSpeed modifications
 * engine values modifications
-* availabilities modifications
 * emission modifications
 * ...
 
