@@ -3,5 +3,5 @@ return {
   loadConfigs = {
     -- 70 seats, 30 standing
     passengers = 80
-  }
+  },
 }

@@ -1,6 +1,8 @@
 local balancing = require "grisu_correctiontorealvalues"
 ---@type Capacities
 local Capacities = balancing.capacities
+---@type LoadSpeed
+local LoadSpeed = balancing.loadSpeed
 
 ---@class BalancingData : table
 ---@field _multipliers Multipliers
@@ -60,10 +62,11 @@ function data()
 
           -- handle capacities
           local capacities = Capacities.create(modelName, balancingData)
-          -- handle compartments
-          capacities:updateCompartments(transportVehicle)
-          -- handle compartmentsList
-          capacities:updateCompartmentLists(transportVehicle)
+          capacities:update(transportVehicle)
+
+          -- handle loadSpeed
+          local loadSpeed = LoadSpeed.create(modelName, balancingData)
+          loadSpeed:update(transportVehicle)
 
         end
         return data

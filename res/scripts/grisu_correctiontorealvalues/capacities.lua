@@ -23,6 +23,13 @@ end
 
 ---@public
 ---@param transportVehicle table
+function Capacities:update(transportVehicle)
+  self:updateCompartments(transportVehicle)
+  self:updateCompartmentLists(transportVehicle)
+end
+
+---@private
+---@param transportVehicle table
 function Capacities:updateCompartments(transportVehicle)
   if type(transportVehicle.compartments) == "table" then
     for _, compartment in ipairs(transportVehicle.compartments) do
@@ -41,7 +48,7 @@ function Capacities:updateCompartments(transportVehicle)
   end
 end
 
----@public
+---@private
 ---@param transportVehicle table
 function Capacities:updateCompartmentLists(transportVehicle)
   if type(transportVehicle.compartmentsList) == "table" then
