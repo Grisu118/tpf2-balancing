@@ -6,7 +6,7 @@
 ---@class Capacities
 ---@field balancingData BalancingData
 ---@field modelName string
-Capacities = {}
+local Capacities = {}
 Capacities.__index = Capacities
 
 ---@public

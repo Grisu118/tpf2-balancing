@@ -6,7 +6,7 @@
 ---@class LoadSpeed
 ---@field balancingData BalancingData
 ---@field modelName string
-LoadSpeed = {}
+local LoadSpeed = {}
 LoadSpeed.__index = LoadSpeed
 
 ---@public

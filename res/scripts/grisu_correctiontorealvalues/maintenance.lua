@@ -6,7 +6,7 @@
 ---@class Maintenance
 ---@field balancingData BalancingData
 ---@field modelName string
-Maintenance = {}
+local Maintenance = {}
 Maintenance.__index = Maintenance
 
 ---@public

@@ -6,7 +6,7 @@
 ---@class Availability
 ---@field balancingData BalancingData
 ---@field modelName string
-Availability = {}
+local Availability = {}
 Availability.__index = Availability
 
 ---@public
