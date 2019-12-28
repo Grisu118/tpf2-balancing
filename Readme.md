@@ -1,4 +1,6 @@
 # Correction to real values
+[![Build Status](https://travis-ci.com/Grisu118/tpf2-balancing.svg?branch=master)](https://travis-ci.com/Grisu118/tpf2-balancing)
+[![Build status](https://ci.appveyor.com/api/projects/status/kdbxk701fbyjfo9d/branch/master?svg=true)](https://ci.appveyor.com/project/Grisu118/tpf2-balancing/branch/master)
 
 This is a script modification for [Transport Fever 2](https://www.transportfever2.com/),
 the aim of this mod is to use real values for capacity, power...

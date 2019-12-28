@@ -38,7 +38,8 @@ function Capacities:updateCompartments(transportVehicle)
           if type(compartment2) == "table" then
             for _, compartment3 in ipairs(compartment2) do
               if type(compartment3) == "table" and compartment3.capacity then
-                compartment3.capacity = self:selectCapacity(compartment3.capacity, transportVehicle.carrier, compartment3.type)
+                compartment3.capacity = self:selectCapacity(compartment3.capacity,
+                    transportVehicle.carrier, compartment3.type)
               end
             end
           end
@@ -58,7 +59,8 @@ function Capacities:updateCompartmentLists(transportVehicle)
           if type(loadConfig) == "table" and loadConfig.cargoEntries then
             for _, cargoEntry in ipairs(loadConfig.cargoEntries) do
               if type(cargoEntry) == "table" and cargoEntry.capacity then
-                cargoEntry.capacity = self:selectLoadConfigCapacity(cargoEntry.capacity, transportVehicle.carrier, cargoEntry.type, index)
+                cargoEntry.capacity = self:selectLoadConfigCapacity(cargoEntry.capacity,
+                    transportVehicle.carrier, cargoEntry.type, index)
               end
             end
           end

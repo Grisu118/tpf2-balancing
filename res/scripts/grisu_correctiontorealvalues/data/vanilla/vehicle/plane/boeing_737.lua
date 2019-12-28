@@ -1,5 +1,12 @@
 -- Boeing 737 (1968)
 return {
+  metadata = {
+    name = "Boeing 737-100",
+    loadSpeed = 6,
+    capacities = {
+      passengers = 80
+    }
+  },
   capacities = {
     -- Real: -136 Passagiere
     passengers = 82 -- 80

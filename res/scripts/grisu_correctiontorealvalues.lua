@@ -57,14 +57,14 @@ local dataMetatable = {
   __index = function(t, key)
     local configKey = string.match(key, "res/models/model/(.+).mdl")
     local vanillaFile = dataPrefix .. "vanilla/" .. configKey .. ".lua"
-    local data, err = doLoadFile(vanillaFile)
+    local data, _ = doLoadFile(vanillaFile)
     if data then
       t[key] = data
       return t[key]
     end
     -- load mod data file
     local modFile = dataPrefix .. "mods/" .. configKey .. ".lua"
-    data, err = doLoadFile(modFile)
+    data, _ = doLoadFile(modFile)
     if data then
       t[key] = data
       return t[key]
@@ -84,7 +84,9 @@ local grisuCorrectionToRealValuesMetatable = {
     if data then
       t[key] = data
       t[key].grisu_balancing = grisuCorrectionToRealValues
-      logFn("loaded module 'grisu118_correctiontorealvalues.", key, "' [", fileName, "] (Version ", data.version or "0.0", ")")
+      logFn("loaded module 'grisu118_correctiontorealvalues.",
+          key,
+          "' [", fileName, "] (Version ", data.version or "0.0", ")")
       return t[key]
     else
       logFn("can not load module 'grisu118_correctiontorealvalues.", key, "'. Message: ", (err or ""))
