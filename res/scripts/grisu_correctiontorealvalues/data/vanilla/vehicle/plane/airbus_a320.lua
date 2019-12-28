@@ -1,5 +1,12 @@
 -- Airbus A320 (1992)
 return {
+  metadata = {
+    name = "Airbus A320",
+    loadSpeed = 7,
+    capacities = {
+      passengers = 148
+    }
+  },
   capacities = {
     -- Real: 150-180 Passagiere
     passengers = 156 -- 148
