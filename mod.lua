@@ -1,12 +1,4 @@
 local balancing = require "grisu_correctiontorealvalues"
----@type Capacities
-local Capacities = balancing.capacities
----@type LoadSpeed
-local LoadSpeed = balancing.loadSpeed
----@type Availability
-local Availability = balancing.availability
----@type Maintenance
-local Maintenance = balancing.maintenance
 
 ---@class BalancingData : table
 ---@field _multipliers Multipliers
@@ -55,6 +47,15 @@ function data()
       tags = { "Script Mod" },
     },
     runFn = function()
+      ---@type Capacities
+      local Capacities = balancing.capacities
+      ---@type LoadSpeed
+      local LoadSpeed = balancing.loadSpeed
+      ---@type Availability
+      local Availability = balancing.availability
+      ---@type Maintenance
+      local Maintenance = balancing.maintenance
+
       ---@type BalancingData
       local balancingData = balancing.data
       balancingData._multipliers = defaultSettings.multipliers
