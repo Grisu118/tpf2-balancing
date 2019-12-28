@@ -5,10 +5,18 @@ matrix:
     - os: linux
       env:
         - LUA="lua=5.1"
+        - UPDATE_DOC=true
     - os: osx
       language: generic
       env:
         - LUA="lua=5.1"
+
+env:
+  global:
+    - GIT_NAME: Travis CI
+    - GIT_EMAIL: travis@travis-ci.org
+    - GITHUB_REPO: Grisu118/tpf2-balancing
+    - GIT_SOURCE: build/docs
 
 before_install:
 #  - pip3 install codecov
@@ -19,6 +27,7 @@ before_install:
   - luarocks install luafilesystem
 #  - luarocks install cluacov
   - luarocks install luacheck
+  - nvm install 10
 
 #install:
 #  - luarocks make
@@ -26,8 +35,12 @@ before_install:
 script:
   - luacheck res spec
   - busted
+  - if [ "$UPDATE_DOC" = "true" ]; then lua generateDoc.lua; fi
 #  - busted -c
 
 #after_script:
 #  - luacov
 #  - codecov -X gcov
+
+after_success:
+  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" -a "$UPDATE_DOC" = "true" ]; then npm install git-update-ghpages && ./node_modules/.bin/git-update-ghpages -e; fi
