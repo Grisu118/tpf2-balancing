@@ -5,6 +5,9 @@ return {
     loadSpeed = 6,
     capacities = {
       passengers = 80
+    },
+    availability = {
+      yearFrom = 1968
     }
   },
   capacities = {

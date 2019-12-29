@@ -13,6 +13,9 @@ return {
         20
       }
     },
+    availability = {
+      yearFrom = 1933
+    },
   },
   loadConfigs = {
     -- Real: 15–17 + 3 Passagiere

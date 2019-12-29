@@ -1,10 +1,13 @@
 return {
-  -- TODO Should we fix the train driver? Both are visible when driving forward, none when driving backwards
   metadata = {
     name = "SBB Roterpfeil",
     loadSpeed = 1,
     capacities = {
       passengers = 80
+    },
+    availability = {
+      yearFrom = 1935,
+      yearTo = 1992,
     },
   },
   loadConfigs = {

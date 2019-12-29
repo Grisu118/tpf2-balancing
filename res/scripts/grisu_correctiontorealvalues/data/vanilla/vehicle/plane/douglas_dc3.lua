@@ -6,6 +6,9 @@ return {
     capacities = {
       passengers = 40
     },
+    availability = {
+      yearFrom = 1935
+    },
   },
   capacities = {
     -- Real: 28-35 Passagiere

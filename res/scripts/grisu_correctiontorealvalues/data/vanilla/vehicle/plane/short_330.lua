@@ -9,6 +9,9 @@ return {
         24
       }
     },
+    availability = {
+      yearFrom = 1976
+    },
   },
   capacities = {
     -- Real: 30 Passangers
