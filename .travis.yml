@@ -16,7 +16,7 @@ env:
     - GIT_NAME: Travis CI
     - GIT_EMAIL: travis@travis-ci.org
     - GITHUB_REPO: Grisu118/tpf2-balancing
-    - GIT_SOURCE: build/docs
+    - GIT_SOURCE: _docpress
 
 before_install:
 #  - pip3 install codecov
@@ -33,9 +33,10 @@ before_install:
 #  - luarocks make
 
 script:
-  - luacheck res spec
+  - luacheck res spec util generateDoc.lua
   - busted
   - if [ "$UPDATE_DOC" = "true" ]; then lua generateDoc.lua; fi
+  - if [ "$UPDATE_DOC" = "true" ]; then npm install docpress && ./node_modules/.bin/docpress build; fi
 #  - busted -c
 
 #after_script:

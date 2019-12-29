@@ -1,28 +1,4 @@
-local lfs = require("lfs")
-
-local dirSep = package.config:sub(1,1) -- handle Windows or Unix
-
-local function dirLookup(dir,list)
-  list = list or {}	-- use provided list or create a new one
-
-  for entry in lfs.dir(dir) do
-    if entry ~= "." and entry ~= ".." then
-      local ne = dir .. dirSep .. entry
-      if lfs.attributes(ne).mode == 'directory' then
-        dirLookup(ne,list)
-      else
-        table.insert(list,ne)
-      end
-    end
-  end
-
-  return list
-end
-
-
-local function endsWith(str, ending)
-  return ending == "" or str:sub(-#ending) == ending
-end
+local util = require("..util.util")
 
 local function checkFile(file)
   describe(file, function()
@@ -116,17 +92,17 @@ end
 
 describe("Data files contains all necessary information", function()
   describe("Vanilla", function()
-    local files = dirLookup("res/scripts/grisu_correctiontorealvalues/data/vanilla")
+    local files = util.dirLookup("res/scripts/grisu_correctiontorealvalues/data/vanilla")
     for _, file in ipairs(files) do
-      if endsWith(file, ".lua") then
+      if util.endsWith(file, ".lua") then
         checkFile(file)
       end
     end
   end)
   describe("Mods", function()
-    local files = dirLookup("res/scripts/grisu_correctiontorealvalues/data/mods")
+    local files = util.dirLookup("res/scripts/grisu_correctiontorealvalues/data/mods")
     for _, file in ipairs(files) do
-      if endsWith(file, ".lua") then
+      if util.endsWith(file, ".lua") then
         checkFile(file)
       end
     end
