@@ -1,0 +1,111 @@
+{
+  "toc": {
+    "sections": [
+      {
+        "title": "TPF2 Balancing",
+        "source": "Readme.md",
+        "url": "index.html",
+        "slug": "index",
+        "headings": [
+          {
+            "title": "Active features",
+            "depth": 3,
+            "id": "active-features"
+          },
+          {
+            "title": "Planned features",
+            "depth": 3,
+            "id": "planned-features"
+          },
+          {
+            "title": "Installation",
+            "depth": 2,
+            "id": "installation",
+            "headings": [
+              {
+                "title": "GIT",
+                "depth": 3,
+                "id": "git"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Changed Data",
+        "sections": [
+          {
+            "title": "Vanilla",
+            "sections": [
+              {
+                "title": "plane",
+                "source": "docs/data/vanilla/plane.md",
+                "url": "data/vanilla/plane.html",
+                "slug": "datavanillaplane"
+              },
+              {
+                "title": "train",
+                "source": "docs/data/vanilla/train.md",
+                "url": "data/vanilla/train.html",
+                "slug": "datavanillatrain"
+              }
+            ]
+          },
+          {
+            "title": "Mods"
+          }
+        ]
+      }
+    ]
+  },
+  "index": {
+    "index.html": {
+      "source": "Readme.md",
+      "title": "TPF2 Balancing",
+      "pageTitle": "TPF2 Balancing",
+      "slug": "index",
+      "headings": [
+        {
+          "title": "Active features",
+          "depth": 3,
+          "id": "active-features"
+        },
+        {
+          "title": "Planned features",
+          "depth": 3,
+          "id": "planned-features"
+        },
+        {
+          "title": "Installation",
+          "depth": 2,
+          "id": "installation",
+          "headings": [
+            {
+              "title": "GIT",
+              "depth": 3,
+              "id": "git"
+            }
+          ]
+        }
+      ]
+    },
+    "data/vanilla/plane.html": {
+      "source": "docs/data/vanilla/plane.md",
+      "title": "plane - TPF2 Balancing",
+      "pageTitle": "plane",
+      "slug": "datavanillaplane"
+    },
+    "data/vanilla/train.html": {
+      "source": "docs/data/vanilla/train.md",
+      "title": "train - TPF2 Balancing",
+      "pageTitle": "train",
+      "slug": "datavanillatrain"
+    }
+  },
+  "sources": {
+    "Readme.md": "index.html",
+    "docs/data/vanilla/plane.md": "data/vanilla/plane.html",
+    "docs/data/vanilla/train.md": "data/vanilla/train.html",
+    "docs/docpress.json": "docpress.json"
+  }
+}

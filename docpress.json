@@ -1,0 +1,9 @@
+{
+  "github": "Grisu118/tpf2-balancing",
+  "markdown": {
+    "typographer": true,
+    "plugins": {
+      "decorate": {}
+    }
+  }
+}
