@@ -40,6 +40,13 @@ local function checkFile(file)
     it("data.metadata.name is not an empty string", function()
       assert.is_true(string.len(data.metadata.name) > 0)
     end)
+    -- require metadata.availability.yearFrom for sorting in doc table
+    it("data.metadata.availability is table", function()
+      assert.are.equals("table", type(data.metadata.availability))
+    end)
+    it("data.metadata.availability.yearFrom is number", function()
+      assert.are.equals("number", type(data.metadata.availability.yearFrom))
+    end)
     if data.loadSpeed then
       it("data.loadSpeed is a number", function()
         assert.are.equals("number", type(data.loadSpeed))
