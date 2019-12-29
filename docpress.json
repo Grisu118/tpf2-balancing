@@ -1,5 +1,8 @@
 {
   "github": "Grisu118/tpf2-balancing",
+  "css": [
+    "docs/assets/custom.css"
+  ],
   "markdown": {
     "typographer": true,
     "plugins": {

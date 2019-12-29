@@ -106,6 +106,7 @@
     "Readme.md": "index.html",
     "docs/data/vanilla/plane.md": "data/vanilla/plane.html",
     "docs/data/vanilla/train.md": "data/vanilla/train.html",
-    "docs/docpress.json": "docpress.json"
+    "docs/docpress.json": "docpress.json",
+    "docs/assets/custom.css": "assets/custom.css"
   }
 }
