@@ -8,10 +8,14 @@ return {
         tractiveEffort = 100,
       },
     },
+    availability = {
+      yearFrom = 1991,
+      yearTo = 0,
+    },
   },
   loadSpeed = 0,  -- no entrance for passengers
   railVehicle = {
-  engines = {
+    engines = {
         power = 4800,
         tractiveEffort = 200,
     },
