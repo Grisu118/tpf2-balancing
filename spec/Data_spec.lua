@@ -1,4 +1,5 @@
-local util = require("..util.util")
+local fileUtil = require("..util.file")
+local stringUtil = require("..util.string")
 
 local function checkFile(file)
   describe(file, function()
@@ -147,17 +148,17 @@ end
 
 describe("Data files contains all necessary information", function()
   describe("Vanilla", function()
-    local files = util.dirLookup("res/scripts/grisu_correctiontorealvalues/data/vanilla")
+    local files = fileUtil.dirLookup("res/scripts/grisu_correctiontorealvalues/data/vanilla")
     for _, file in ipairs(files) do
-      if util.endsWith(file, ".lua") then
+      if stringUtil.endsWith(file, ".lua") then
         checkFile(file)
       end
     end
   end)
   describe("Mods", function()
-    local files = util.dirLookup("res/scripts/grisu_correctiontorealvalues/data/mods")
+    local files = fileUtil.dirLookup("res/scripts/grisu_correctiontorealvalues/data/mods")
     for _, file in ipairs(files) do
-      if util.endsWith(file, ".lua") then
+      if stringUtil.endsWith(file, ".lua") then
         checkFile(file)
       end
     end

@@ -45,6 +45,16 @@ function RailVehicle:update(railVehicle)
     end
   else
     -- apply power factor
+    if railVehicle.engines then
+      for _, engine in ipairs(railVehicle.engines) do
+        if engine.power then
+          engine.power = engine.power * self.balancingData._multipliers.power
+        end
+        if engine.tractiveEffort then
+          engine.tractiveEffort = engine.tractiveEffort * self.balancingData._multipliers.power
+        end
+      end
+    end
   end
 end
 

@@ -18,6 +18,7 @@ before_build:
   - call lua_install\bin\activate
   - luarocks install busted
   - luarocks install luafilesystem
+  - luarocks install luasocket
 #  - luarocks install cluacov
   - luarocks install luacheck
 
