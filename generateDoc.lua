@@ -139,8 +139,8 @@ local function generateMdCell(typeData, header)
     return content .. rows
   end
   -- vehicleConfig
-  local vehicleConfig
-  local vehicleMeta
+  local vehicleConfig = {}
+  local vehicleMeta = {}
   if data.railVehicle then
     vehicleConfig = data.railVehicle
     vehicleMeta = data.metadata.railVehicle
