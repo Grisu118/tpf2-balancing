@@ -1,6 +1,9 @@
 return {
   metadata = {
     name = "Eurodual",
+    availability = {
+      yearFrom = 2018,
+    },
     loadSpeed = 1,
     railVehicle = {
       engines = {
@@ -8,10 +11,7 @@ return {
         tractiveEffort = 500,
       },
     },
-    availability = {
-      yearFrom = 2018,
-      yearTo = 0,
-    },
+
   },
   loadSpeed = 0,  -- no entrance for passengers
   railVehicle = {
