@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/style.css?t=90051322">
+    <link rel="stylesheet" href="assets/custom.css?t=60a5e5bc">
+    <script src="assets/script.js?t=93f1a66c"></script>
+    <title>Available Modifications - TPF2 Balancing</title>
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body class="-menu-visible">
+    <div class="doc-layout">
+      <div class="toggle menu-toggle js-menu-toggle"></div>
+      <div class="menu toc-menu">
+        <ul>
+          <li class="menu-item -level-0 -parent">
+            <ul class="submenu">
+              <li class="menu-item -level-1"><a class="link title  link-index" href="index.html">TPF2 Balancing</a>
+              </li>
+              <li class="menu-item -level-1 -parent"><span class="title">Changed Data</span>
+                <ul class="submenu">
+                  <li class="menu-item -level-2"><a class="link title -active link-datacontent" href="DataContent.html">Available Modifications</a>
+                    <ul class="headings heading-list">
+                      <li class="heading-item -depth-2"><a class="hlink link-loadconfigs-capacities" href="#loadconfigs-capacities">LoadConfigs / Capacities</a>
+                        <ul class="heading-list -depth-2">
+                          <li class="heading-item -depth-3"><a class="hlink link-capacities" href="#capacities">Capacities</a>
+                          </li>
+                          <li class="heading-item -depth-3"><a class="hlink link-loadconfigs" href="#loadconfigs">LoadConfigs</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-item -level-2 -parent"><span class="title">Vanilla</span>
+                    <ul class="submenu">
+                      <li class="menu-item -level-3"><a class="link title  link-datavanillaplane" href="data/vanilla/plane.html">Plane</a>
+                      </li>
+                      <li class="menu-item -level-3"><a class="link title  link-datavanillatrain" href="data/vanilla/train.html">Train</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-item -level-2"><span class="title">Mods</span>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="body page-datacontent">
+        <div class="header-nav">
+          <div class="right"><a class="iconlink" href="https://github.com/Grisu118/tpf2-balancing" data-title="Grisu118/tpf2-balancing">
+              <!-- span.title Open in GitHub--><span class="icon -github"></span></a>
+          </div>
+        </div>
+        <div class="markdown-body"><h1 id="data-modification-files">Data Modification Files</h1>
+<p>This file explains the different values you can provide in a vehicle config file.
+The following file shows all possible values. See the comments in the file for details.</p>
+<pre><code class="lang-lua"><span class="pl-k">return</span> {
+  <span class="pl-c">-- information about the original vehicle, used to generate the documentation</span>
+  metadata = {
+    name = <span class="pl-s">&quot;SBB Roterpfeil&quot;</span>,
+    loadSpeed = <span class="hljs-number">1</span>,
+    <span class="pl-c">-- the original capacities, also used if vehicle as loadConfigs</span>
+    capacities = { 
+      passengers = <span class="hljs-number">80</span>,
+      _all = <span class="hljs-number">70</span>
+    },
+    availability = {
+      yearFrom = <span class="hljs-number">1935</span>, <span class="pl-c">-- this is mandatory for every config, as it is used for sorting the vehicles in the documentation</span>
+      yearTo = <span class="hljs-number">1992</span>,
+    },
+    railVehicle = {
+      engines = { <span class="pl-c">-- can also be an array if multiple engines are present</span>
+        power = <span class="hljs-number">809</span>,
+        tractiveEffort = <span class="hljs-number">177</span>,
+      },
+      topSpeed = <span class="hljs-number">25</span>, <span class="pl-c">-- speed in m/s as it is in the game</span>
+      weight = <span class="hljs-number">62</span>,
+    },
+    maintenance = {
+      lifespan = <span class="hljs-number">29568</span> <span class="pl-c">-- lifespan as it is in the game</span>
+    }
+  },
+  loadConfigs = { <span class="pl-c">-- can also be an array, if there are multiple entries</span>
+    <span class="pl-c">-- Real: 70 seats, 30 standing</span>
+    passengers = <span class="hljs-number">80</span>, <span class="pl-c">-- specific config for passengers</span>
+    coal = <span class="hljs-number">55</span>, <span class="pl-c">-- specific config for coal</span>
+    _all = <span class="hljs-number">50</span>  <span class="pl-c">-- fallback for all other cargo types</span>
+  },
+  railVehicle = {
+    engines = {
+        power = <span class="hljs-number">800</span>,
+        tractiveEffort = <span class="hljs-number">175</span>,
+    },
+    topSpeed = <span class="hljs-number">30</span>, <span class="pl-c">-- speed in km/h</span>
+    weight = <span class="hljs-number">60</span>,
+  },
+  maintenance = {
+    lifespan = <span class="hljs-number">30</span> <span class="pl-c">-- lifespan in years</span>
+  },
+  availability = {
+    yearFrom = <span class="hljs-number">1935</span>,
+    yearTo = <span class="hljs-number">1992</span>,
+  }
+}
+</code></pre>
+<h2 id="loadconfigs-capacities">LoadConfigs / Capacities</h2>
+<h3 id="capacities">Capacities</h3>
+<p>The capacities block cannot be an array (only in metadata it can), if the original vehicle has multiple compartments.
+The capacity of each compartment is set to the value given in capacities. In this case the metadata.capacities.type must be an array.
+Otherwise the documentation shows wrong values.
+<a href="https://github.com/Grisu118/tpf2-balancing/blob/master/res/scripts/grisu_correctiontorealvalues/data/vanilla/vehicle/plane/bristol_freighter.lua">Example</a></p>
+<h3 id="loadconfigs">LoadConfigs</h3>
+<p><a href="https://github.com/Grisu118/tpf2-balancing/blob/master/res/scripts/grisu_correctiontorealvalues/data/vanilla/vehicle/plane/junkers_ju_52.lua">Example</a></p>
+
+        </div>
+        <div class="footer-nav">
+          <div class="left"><a href="index.html"><span class="title">TPF2 Balancing</span></a></div>
+          <div class="right"><a href="data/vanilla/plane.html"><span class="label">Next: </span><span class="title">Plane</span></a></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

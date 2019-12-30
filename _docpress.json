@@ -35,16 +35,41 @@
         "title": "Changed Data",
         "sections": [
           {
+            "title": "Available Modifications",
+            "source": "docs/DataContent.md",
+            "url": "DataContent.html",
+            "slug": "datacontent",
+            "headings": [
+              {
+                "title": "LoadConfigs / Capacities",
+                "depth": 2,
+                "id": "loadconfigs-capacities",
+                "headings": [
+                  {
+                    "title": "Capacities",
+                    "depth": 3,
+                    "id": "capacities"
+                  },
+                  {
+                    "title": "LoadConfigs",
+                    "depth": 3,
+                    "id": "loadconfigs"
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "title": "Vanilla",
             "sections": [
               {
-                "title": "plane",
+                "title": "Plane",
                 "source": "docs/data/vanilla/plane.md",
                 "url": "data/vanilla/plane.html",
                 "slug": "datavanillaplane"
               },
               {
-                "title": "train",
+                "title": "Train",
                 "source": "docs/data/vanilla/train.md",
                 "url": "data/vanilla/train.html",
                 "slug": "datavanillatrain"
@@ -89,21 +114,47 @@
         }
       ]
     },
+    "DataContent.html": {
+      "source": "docs/DataContent.md",
+      "title": "Available Modifications - TPF2 Balancing",
+      "pageTitle": "Available Modifications",
+      "slug": "datacontent",
+      "headings": [
+        {
+          "title": "LoadConfigs / Capacities",
+          "depth": 2,
+          "id": "loadconfigs-capacities",
+          "headings": [
+            {
+              "title": "Capacities",
+              "depth": 3,
+              "id": "capacities"
+            },
+            {
+              "title": "LoadConfigs",
+              "depth": 3,
+              "id": "loadconfigs"
+            }
+          ]
+        }
+      ]
+    },
     "data/vanilla/plane.html": {
       "source": "docs/data/vanilla/plane.md",
-      "title": "plane - TPF2 Balancing",
-      "pageTitle": "plane",
+      "title": "Plane - TPF2 Balancing",
+      "pageTitle": "Plane",
       "slug": "datavanillaplane"
     },
     "data/vanilla/train.html": {
       "source": "docs/data/vanilla/train.md",
-      "title": "train - TPF2 Balancing",
-      "pageTitle": "train",
+      "title": "Train - TPF2 Balancing",
+      "pageTitle": "Train",
       "slug": "datavanillatrain"
     }
   },
   "sources": {
     "Readme.md": "index.html",
+    "docs/DataContent.md": "DataContent.html",
     "docs/data/vanilla/plane.md": "data/vanilla/plane.html",
     "docs/data/vanilla/train.md": "data/vanilla/train.html",
     "docs/docpress.json": "docpress.json",
