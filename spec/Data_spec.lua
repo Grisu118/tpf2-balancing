@@ -87,6 +87,61 @@ local function checkFile(file)
         assert.are.equals("table", type(data.metadata.capacities))
       end)
     end
+    if data.railVehicle then
+      it("data.railVehicle is a table", function()
+        assert.are.equals("table", type(data.railVehicle))
+      end)
+      it("data.metadata.railVehicle is a table", function()
+        assert.are.equals("table", type(data.metadata.railVehicle))
+      end)
+      if data.railVehicle.topSpeed then
+        it("data.railVehicle.topSpeed is a number", function()
+          assert.are.equals("number", type(data.railVehicle.topSpeed))
+        end)
+        it("data.metadata.railVehicle.topSpeed is a number", function()
+          assert.are.equals("number", type(data.metadata.railVehicle.topSpeed))
+        end)
+      end
+      if data.railVehicle.weight then
+        it("data.railVehicle.weight is a number", function()
+          assert.are.equals("number", type(data.railVehicle.weight))
+        end)
+        it("data.metadata.railVehicle.weight is a number", function()
+          assert.are.equals("number", type(data.metadata.railVehicle.weight))
+        end)
+      end
+      if data.railVehicle.engines then
+        it("data.railVehicle.engines is a table", function()
+          assert.are.equals("table", type(data.railVehicle.engines))
+        end)
+        it("data.metadata.railVehicle.engines is a table", function()
+          assert.are.equals("table", type(data.metadata.railVehicle.engines))
+        end)
+        if data.railVehicle.engines.power or data.railVehicle.engines.tractiveEffort then
+          if data.railVehicle.engines.power then
+            it("data.railVehicle.engines.power is a number", function()
+              assert.are.equals("number", type(data.railVehicle.engines.power))
+            end)
+            it("data.metadata.railVehicle.engines.power is a number", function()
+              assert.are.equals("number", type(data.metadata.railVehicle.engines.power))
+            end)
+          end
+          if data.railVehicle.engines.tractiveEffort then
+            it("data.railVehicle.engines.tractiveEffort is a number", function()
+              assert.are.equals("number", type(data.railVehicle.engines.tractiveEffort))
+            end)
+            it("data.metadata.railVehicle.engines.tractiveEffort is a number", function()
+              assert.are.equals("number", type(data.metadata.railVehicle.engines.tractiveEffort))
+            end)
+          end
+        else
+          -- both tables have the same length
+          it("data.metadata.railVehicle.engines and data.railVehicle.engines have the same length", function()
+            assert.are.equals(#data.railVehicle.engines, #data.metadata.railVehicle.engines)
+          end)
+        end
+      end
+    end
   end)
 end
 

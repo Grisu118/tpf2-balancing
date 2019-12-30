@@ -10,10 +10,12 @@ local defaultSettings = {
   ---@class Multipliers
   ---@field loadSpeed number
   ---@field lifespan number
+  ---@field power number
   ---@field capacity table
   multipliers = {
     loadSpeed = 1,
     lifespan = 1,
+    power = 1,
     capacity = {
       air = {
         passengers = 4,
@@ -55,6 +57,8 @@ function data()
       local Availability = balancing.availability
       ---@type Maintenance
       local Maintenance = balancing.maintenance
+      ---@type RailVehicle
+      local RailVehicle = balancing.railVehicle
 
       ---@type BalancingData
       local balancingData = balancing.data
@@ -82,6 +86,10 @@ function data()
           local maintenance = Maintenance.create(modelName, balancingData)
           maintenance:update(data.metadata)
 
+          if type(data.metadata.railVehicle) == "table" then
+            local rV = RailVehicle.create(modelName, balancingData)
+            rV:update(data.metadata.railVehicle)
+          end
         end
         return data
       end)
