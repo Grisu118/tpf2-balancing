@@ -3,7 +3,6 @@ return {
     name = "TGV",
     availability = {
       yearFrom = 1981,
-      yearTo = 2050,
     },
     loadSpeed = 1,
     railVehicle = {
