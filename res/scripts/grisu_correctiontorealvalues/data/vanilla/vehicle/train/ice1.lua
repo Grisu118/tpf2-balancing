@@ -9,10 +9,11 @@ return {
       },
     },
   },
-    loadSpeed = 0,  -- no entrance for passengers
-    railVehicle = {
-    engines = {
+  loadSpeed = 0,  -- no entrance for passengers
+  railVehicle = {
+  engines = {
         power = 4800,
         tractiveEffort = 200,
     },
+  },
 }
