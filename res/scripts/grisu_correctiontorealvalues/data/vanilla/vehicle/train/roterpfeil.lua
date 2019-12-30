@@ -1,7 +1,7 @@
 return {
   metadata = {
     name = "SBB Roterpfeil",
-    loadSpeed = 1,
+    loadSpeed = 2,  --two doors
     capacities = {
       passengers = 80
     },
