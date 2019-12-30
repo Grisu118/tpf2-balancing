@@ -1,6 +1,9 @@
 return {
   metadata = {
     name = "ICE 1",
+    availability = {
+      yearFrom = 1991,
+    },
     loadSpeed = 1,
     railVehicle = {
       engines = {
@@ -8,10 +11,7 @@ return {
         tractiveEffort = 100,
       },
     },
-    availability = {
-      yearFrom = 1991,
-      yearTo = 0,
-    },
+
   },
   loadSpeed = 0,  -- no entrance for passengers
   railVehicle = {
