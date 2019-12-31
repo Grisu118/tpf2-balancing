@@ -13,7 +13,7 @@ return {
   capacities = {
     -- Real: 42+133 Passagiere
     -- sitting 32
-    passengers = 65
+    passengers = 60
   },
   loadSpeed = 4
 }
