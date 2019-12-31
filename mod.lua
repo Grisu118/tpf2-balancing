@@ -59,6 +59,8 @@ function data()
       local Maintenance = balancing.maintenance
       ---@type RailVehicle
       local RailVehicle = balancing.railVehicle
+      ---@type SeatsProvider
+      local SeatsProvider = balancing.seatsProvider
 
       ---@type BalancingData
       local balancingData = balancing.data
@@ -85,6 +87,8 @@ function data()
           availability:update(data.metadata)
           local maintenance = Maintenance.create(modelName, balancingData)
           maintenance:update(data.metadata)
+          local seatsProvider = SeatsProvider.create(modelName, balancingData)
+          seatsProvider:update(data.metadata)
 
           if type(data.metadata.railVehicle) == "table" then
             local rV = RailVehicle.create(modelName, balancingData)
