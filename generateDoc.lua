@@ -35,7 +35,7 @@ local function loadData(path)
   local data = {}
 
   for _, file in ipairs(files) do
-    local vehicleType, name = string.match(file, path .. "/vehicle/([a-zA-Z0-9_\-]+)/(.+).lua")
+    local vehicleType, name = string.match(file, path .. "/vehicle/([a-zA-Z0-9_\\-]+)/(.+).lua")
     if vehicleType and name then
       if not data[vehicleType] then
         data[vehicleType] = {}
