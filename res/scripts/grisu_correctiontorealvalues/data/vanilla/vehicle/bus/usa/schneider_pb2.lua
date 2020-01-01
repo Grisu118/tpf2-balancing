@@ -10,7 +10,7 @@ return {
       yearTo = 1975,
     }
   },
-  capacities = {
+  loadConfigs = {
     -- Real: 28+7 Passagiere
     passengers = 13
   },

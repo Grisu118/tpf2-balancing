@@ -10,7 +10,7 @@ return {
       yearTo = 1988,
     }
   },
-  capacities = {
+  loadConfigs = {
     -- Real: 17+? Passagiere (Saurer 4BPO)
     passengers = 11
   },
