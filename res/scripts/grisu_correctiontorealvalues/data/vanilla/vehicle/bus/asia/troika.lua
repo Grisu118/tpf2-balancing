@@ -1,17 +1,17 @@
 return {
   metadata = {
-    name = "[US] Pferdekutsche",
+    name = "[ASIA] Troika",
     loadSpeed = 1,
     capacities = {
-      passengers = 16
+      passengers = 12
     },
     availability = {
       yearFrom = 1850,
-      yearTo = 1905,
+      yearTo = 1890,
     }
   },
   capacities = {
-    -- Real: 6 Passagiere
+    -- Real: ? Passagiere
     passengers = 4
   },
   loadSpeed = 1

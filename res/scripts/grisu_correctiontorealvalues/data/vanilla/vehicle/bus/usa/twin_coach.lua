@@ -1,6 +1,6 @@
 return {
   metadata = {
-    name = "Twin Coach 44-S",
+    name = "[US] Twin Coach 44-S",
     loadSpeed = 2,
     capacities = {
       passengers = 56

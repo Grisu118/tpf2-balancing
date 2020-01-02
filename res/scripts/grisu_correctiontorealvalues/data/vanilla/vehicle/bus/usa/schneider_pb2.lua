@@ -1,6 +1,6 @@
 return {
   metadata = {
-    name = "Schneider PB2",
+    name = "[US] Schneider PB2",
     loadSpeed = 2,
     capacities = {
       passengers = 36

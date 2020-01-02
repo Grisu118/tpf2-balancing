@@ -1,18 +1,18 @@
 return {
   metadata = {
-    name = "[US] Postkutsche",
+    name = "[ASIA] Dux",
     loadSpeed = 1,
     capacities = {
       passengers = 20
     },
     availability = {
-      yearFrom = 1875,
-      yearTo = 1930,
+      yearFrom = 1902,
+      yearTo = 1932,
     }
   },
   capacities = {
-    -- Real: 8+? Passagiere
-    passengers = 6
+    -- Real: 8? Passagiere
+    passengers = 8
   },
   loadSpeed = 1
 }

@@ -1,6 +1,6 @@
 return {
   metadata = {
-    name = "GM Fishbowl",
+    name = "[US] GM Fishbowl",
     loadSpeed = 3,
     capacities = {
       passengers = 60

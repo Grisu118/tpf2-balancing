@@ -1,6 +1,6 @@
 return {
   metadata = {
-    name = "Mack",
+    name = "[US] Mack",
     loadSpeed = 1.5,
     capacities = {
       passengers = 34

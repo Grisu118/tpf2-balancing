@@ -1,6 +1,6 @@
 return {
   metadata = {
-    name = "Wright StreetCar",
+    name = "[US] Wright StreetCar",
     loadSpeed = 4,
     capacities = {
       passengers = 104

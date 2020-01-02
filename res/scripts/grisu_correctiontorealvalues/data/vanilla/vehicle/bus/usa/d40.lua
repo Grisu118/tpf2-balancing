@@ -1,6 +1,6 @@
 return {
   metadata = {
-    name = "New Flyer D40",
+    name = "[US] New Flyer D40",
     loadSpeed = 3,
     capacities = {
       passengers = 72

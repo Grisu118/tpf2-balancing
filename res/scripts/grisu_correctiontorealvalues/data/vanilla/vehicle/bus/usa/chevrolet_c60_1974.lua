@@ -1,6 +1,6 @@
 return {
   metadata = {
-    name = "Chevrolet C60",
+    name = "[US] Chevrolet C60",
     loadSpeed = 2,
     capacities = {
       passengers = 52
