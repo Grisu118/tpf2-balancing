@@ -123,7 +123,7 @@ local function loadSettings(defaultSettings)
     elseif k == "powerMultiplier" then
       multipliers.power = value
     elseif k == "passengerCapacityMultiplier" then
-      multipliers.capacity._all.passenger = value
+      multipliers.capacity._all.passengers = value
     elseif k == "cargoCapacityMultiplier" then
       multipliers.capacity._all._all = value
     end
