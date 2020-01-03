@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/style.css?t=90051322">
+    <link rel="stylesheet" href="assets/custom.css?t=60a5e5bc">
+    <script src="assets/script.js?t=93f1a66c"></script>
+    <title>Settings - TPF2 Balancing</title>
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body class="-menu-visible">
+    <div class="doc-layout">
+      <div class="toggle menu-toggle js-menu-toggle"></div>
+      <div class="menu toc-menu">
+        <ul>
+          <li class="menu-item -level-0 -parent">
+            <ul class="submenu">
+              <li class="menu-item -level-1"><a class="link title  link-index" href="index.html">TPF2 Balancing</a>
+              </li>
+              <li class="menu-item -level-1"><a class="link title -active link-settings" href="Settings.html">Settings</a>
+                <ul class="headings heading-list">
+                  <li class="heading-item -depth-2"><a class="hlink link-mod-settings-(commonapi2-or-tpfmm)" href="#mod-settings-(commonapi2-or-tpfmm)">Mod Settings (CommonAPI2 or TPFMM)</a>
+                  </li>
+                  <li class="heading-item -depth-2"><a class="hlink link-extended-capacity-configuration" href="#extended-capacity-configuration">Extended Capacity Configuration</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="menu-item -level-1 -parent"><span class="title">Changed Data</span>
+                <ul class="submenu">
+                  <li class="menu-item -level-2"><a class="link title  link-datacontent" href="DataContent.html">Available Modifications</a>
+                  </li>
+                  <li class="menu-item -level-2 -parent"><span class="title">Vanilla</span>
+                    <ul class="submenu">
+                      <li class="menu-item -level-3"><a class="link title  link-datavanillatrain" href="data/vanilla/train.html">Train</a>
+                      </li>
+                      <li class="menu-item -level-3"><a class="link title  link-datavanillabus" href="data/vanilla/bus.html">Bus</a>
+                      </li>
+                      <li class="menu-item -level-3"><a class="link title  link-datavanillaplane" href="data/vanilla/plane.html">Plane</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-item -level-2"><span class="title">Mods</span>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="body page-settings">
+        <div class="header-nav">
+          <div class="right"><a class="iconlink" href="https://github.com/Grisu118/tpf2-balancing" data-title="Grisu118/tpf2-balancing">
+              <!-- span.title Open in GitHub--><span class="icon -github"></span></a>
+          </div>
+        </div>
+        <div class="markdown-body"><h1 id="settings">Settings</h1>
+<h2 id="mod-settings-(commonapi2-or-tpfmm)">Mod Settings (CommonAPI2 or TPFMM)</h2>
+<p><a href="https://www.transportfever.net/lexikon/index.php/Entry/217-Settings-for-Mods/">See also</a><br>
+<a href="https://www.transportfever.net/lexikon/index.php/Entry/216-Einstellungen-f%C3%BCr-Mods/">Siehe auch</a></p>
+<p>Use common api or tpfmm (as soon as available) for customization.
+You can also copy the following to a file named <code>settings.lua</code> into the mods main directory.</p>
+<pre><code class="lang-lua"><span class="pl-k">return</span> {
+	passengerCapacityMultiplier = <span class="hljs-number">4</span>,
+	cargoCapacityMultiplier = <span class="hljs-number">3</span>,
+	lifespanMultiplier = <span class="hljs-number">1</span>,
+	loadSpeedMultiplier = <span class="hljs-number">1</span>,
+	powerMultiplier = <span class="hljs-number">1</span>,
+}
+</code></pre>
+<p>The file shows the active default settings.</p>
+<h2 id="extended-capacity-configuration">Extended Capacity Configuration</h2>
+<p>It is also possible to customize the capacity multipliers for every vehicle type and cargo.
+To do so you need to create a file named <code>capacitySettings.lua</code> in the mods main directory.</p>
+<p>The file needs the following structure:</p>
+<pre><code class="lang-lua"><span class="pl-k">return</span> {
+  &lt;vehicleType&gt; = {
+    &lt;cargoType&gt; = &lt;multiplier
+  }
+}
+</code></pre>
+<p>Example file</p>
+<pre><code class="lang-lua"><span class="pl-k">return</span> {
+  air = {
+    passengers = <span class="hljs-number">4</span>,
+    coal = <span class="hljs-number">2.5</span>,
+    _all = <span class="hljs-number">3</span>
+  },
+  _all = {
+    passengers = <span class="hljs-number">4</span>,
+    _all = <span class="hljs-number">3</span>
+  }
+}
+</code></pre>
+<p>The <code>vehicleType</code> and <code>cargoType</code> must be written in lowercase.
+The <code>vehicleType</code> comes from the <code>transportVehicle.carrier</code> in the mdl.
+The <code>cargoType</code> comes from the <code>type</code> in the compartments or loadConfigs list.</p>
+<p>You can always us the <code>_all</code> key as fallback for all values which are not in the current list.
+The last <code>_all</code> fallback in the example above is optional, this is always created from the Mod Settings.</p>
+
+        </div>
+        <div class="footer-nav">
+          <div class="left"><a href="index.html"><span class="title">TPF2 Balancing</span></a></div>
+          <div class="right"><a href="DataContent.html"><span class="label">Next: </span><span class="title">Available Modifications</span></a></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

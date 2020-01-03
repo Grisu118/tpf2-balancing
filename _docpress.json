@@ -13,9 +13,14 @@
             "id": "active-features"
           },
           {
-            "title": "Planned features",
+            "title": "Missing features",
             "depth": 3,
-            "id": "planned-features"
+            "id": "missing-features"
+          },
+          {
+            "title": "Changes",
+            "depth": 3,
+            "id": "changes"
           },
           {
             "title": "Installation",
@@ -28,6 +33,24 @@
                 "id": "git"
               }
             ]
+          }
+        ]
+      },
+      {
+        "title": "Settings",
+        "source": "docs/Settings.md",
+        "url": "Settings.html",
+        "slug": "settings",
+        "headings": [
+          {
+            "title": "Mod Settings (CommonAPI2 or TPFMM)",
+            "depth": 2,
+            "id": "mod-settings-(commonapi2-or-tpfmm)"
+          },
+          {
+            "title": "Extended Capacity Configuration",
+            "depth": 2,
+            "id": "extended-capacity-configuration"
           }
         ]
       },
@@ -102,9 +125,14 @@
           "id": "active-features"
         },
         {
-          "title": "Planned features",
+          "title": "Missing features",
           "depth": 3,
-          "id": "planned-features"
+          "id": "missing-features"
+        },
+        {
+          "title": "Changes",
+          "depth": 3,
+          "id": "changes"
         },
         {
           "title": "Installation",
@@ -117,6 +145,24 @@
               "id": "git"
             }
           ]
+        }
+      ]
+    },
+    "Settings.html": {
+      "source": "docs/Settings.md",
+      "title": "Settings - TPF2 Balancing",
+      "pageTitle": "Settings",
+      "slug": "settings",
+      "headings": [
+        {
+          "title": "Mod Settings (CommonAPI2 or TPFMM)",
+          "depth": 2,
+          "id": "mod-settings-(commonapi2-or-tpfmm)"
+        },
+        {
+          "title": "Extended Capacity Configuration",
+          "depth": 2,
+          "id": "extended-capacity-configuration"
         }
       ]
     },
@@ -166,6 +212,7 @@
   },
   "sources": {
     "Readme.md": "index.html",
+    "docs/Settings.md": "Settings.html",
     "docs/DataContent.md": "DataContent.html",
     "docs/data/vanilla/train.md": "data/vanilla/train.html",
     "docs/data/vanilla/bus.md": "data/vanilla/bus.html",
