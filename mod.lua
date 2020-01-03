@@ -50,14 +50,18 @@ function data()
       minorVersion = 0,
       severityAdd = "NONE",
       severityRemove = "NONE",
-      name = "Grisu's Balancing to real values",
-      description = "TODO",
+      name = _("Grisu's Balancing to real values"),
+      description = _("TODO"),
       authors = {
         {
           name = "Grisu118",
           role = "CREATOR",
           tfnetId = "18977",
-          text = ""
+        },
+        {
+          name = "Seamon",
+          role = "CO-CREATOR",
+          tfnetId = 23649,
         }
       },
       tags = { "Script Mod" },
