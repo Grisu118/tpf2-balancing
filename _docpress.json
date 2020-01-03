@@ -63,16 +63,22 @@
             "title": "Vanilla",
             "sections": [
               {
-                "title": "Plane",
-                "source": "docs/data/vanilla/plane.md",
-                "url": "data/vanilla/plane.html",
-                "slug": "datavanillaplane"
-              },
-              {
                 "title": "Train",
                 "source": "docs/data/vanilla/train.md",
                 "url": "data/vanilla/train.html",
                 "slug": "datavanillatrain"
+              },
+              {
+                "title": "Bus",
+                "source": "docs/data/vanilla/bus.md",
+                "url": "data/vanilla/bus.html",
+                "slug": "datavanillabus"
+              },
+              {
+                "title": "Plane",
+                "source": "docs/data/vanilla/plane.md",
+                "url": "data/vanilla/plane.html",
+                "slug": "datavanillaplane"
               }
             ]
           },
@@ -139,24 +145,31 @@
         }
       ]
     },
-    "data/vanilla/plane.html": {
-      "source": "docs/data/vanilla/plane.md",
-      "title": "Plane - TPF2 Balancing",
-      "pageTitle": "Plane",
-      "slug": "datavanillaplane"
-    },
     "data/vanilla/train.html": {
       "source": "docs/data/vanilla/train.md",
       "title": "Train - TPF2 Balancing",
       "pageTitle": "Train",
       "slug": "datavanillatrain"
+    },
+    "data/vanilla/bus.html": {
+      "source": "docs/data/vanilla/bus.md",
+      "title": "Bus - TPF2 Balancing",
+      "pageTitle": "Bus",
+      "slug": "datavanillabus"
+    },
+    "data/vanilla/plane.html": {
+      "source": "docs/data/vanilla/plane.md",
+      "title": "Plane - TPF2 Balancing",
+      "pageTitle": "Plane",
+      "slug": "datavanillaplane"
     }
   },
   "sources": {
     "Readme.md": "index.html",
     "docs/DataContent.md": "DataContent.html",
-    "docs/data/vanilla/plane.md": "data/vanilla/plane.html",
     "docs/data/vanilla/train.md": "data/vanilla/train.html",
+    "docs/data/vanilla/bus.md": "data/vanilla/bus.html",
+    "docs/data/vanilla/plane.md": "data/vanilla/plane.html",
     "docs/docpress.json": "docpress.json",
     "docs/assets/custom.css": "assets/custom.css"
   }
