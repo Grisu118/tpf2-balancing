@@ -144,28 +144,12 @@ local function loadSettings(defaultSettings)
   return settings
 end
 
-local function dmp(tb)
-  for k, v in pairs(tb) do
-    if type(v) == "table" then
-      print("Table found: ", k)
-      dmp(v)
-      print("up")
-    else
-      print(k .. " = " .. v)
-    end
-  end
-end
-
 ---@param defaultSettings table<string, DefaultSettingsItem>
 function Settings.create(defaultSettings)
   local obj = {}
   setmetatable(obj, Settings)
   obj.defaultSettings = defaultSettings
   obj.settings = loadSettings(defaultSettings)
-
-  print("Settings dump")
-  dmp(obj.settings)
-
   return obj
 end
 
