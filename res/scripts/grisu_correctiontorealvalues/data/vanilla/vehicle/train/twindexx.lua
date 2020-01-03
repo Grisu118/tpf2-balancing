@@ -14,10 +14,10 @@ return {
 
   },
   loadSpeed = 4,  -- two wide doors
+  availability = {
+    yearFrom = 2018,
+  },
   railVehicle = {
-    availability = {
-      yearFrom = 2018,
-    },
     engines = {
         power = 2812.5,
         tractiveEffort = 180.75,
