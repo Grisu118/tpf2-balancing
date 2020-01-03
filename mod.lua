@@ -3,51 +3,70 @@ local balancing = require "grisu_correctiontorealvalues"
 ---@class BalancingData : table
 ---@field _multipliers Multipliers
 
----@class Fallbacks
--- TODO extend with settings similar to merk_modutil
+---@class Multipliers
+---@field loadSpeed number
+---@field lifespan number
+---@field power number
+---@field capacity table
+
 local defaultSettings = {
-  -- capacity multipliers
-  ---@class Multipliers
-  ---@field loadSpeed number
-  ---@field lifespan number
-  ---@field power number
-  ---@field capacity table
-  multipliers = {
-    loadSpeed = 1,
-    lifespan = 1,
-    power = 1,
-    capacity = {
-      air = {
-        passengers = 4,
-        coal = 3,
-        _all = 3
-      },
-      _all = {
-        passengers = 4,
-        _all = 3
-      }
-    }
-  }
+  loadSpeedMultiplier = {
+    name = _("LoadSpeed Multiplier"),
+    description = _("The multiplier of the loadSpeed"),
+    type = "number",
+    default = 1,
+  },
+  lifespanMultiplier = {
+    name = _("Lifespan Multiplier"),
+    description = _("The multiplier of the lifespan"),
+    type = "number",
+    default = 1,
+  },
+  powerMultiplier = {
+    name = _("Power Multiplier"),
+    description = _("The multiplier of the power"),
+    type = "number",
+    default = 1,
+  },
+  passengerCapacityMultiplier = {
+    name = _("Passenger Capacity Multiplier"),
+    description = _("The multiplier of the passenger capacity"),
+    type = "number",
+    default = 4,
+  },
+  cargoCapacityMultiplier = {
+    name = _("Cargo Capacity Multiplier"),
+    description = _("The multiplier of the cargo capacity"),
+    type = "number",
+    default = 3,
+  },
 }
 
 function data()
+  local settingsObj = balancing.settings.create(defaultSettings)
+
   return {
     info = {
       minorVersion = 0,
       severityAdd = "NONE",
       severityRemove = "NONE",
-      name = "Grisu's Balancing to real values",
-      description = "TODO",
+      name = _("Grisu's Balancing to real values"),
+      description = _("TODO"),
       authors = {
         {
           name = "Grisu118",
           role = "CREATOR",
           tfnetId = "18977",
-          text = ""
+        },
+        {
+          name = "Seamon",
+          role = "CO-CREATOR",
+          tfnetId = 23649,
         }
       },
       tags = { "Script Mod" },
     },
+    settings = settingsObj.defaultSettings,
     runFn = function()
       ---@type Capacities
       local Capacities = balancing.capacities
@@ -64,7 +83,7 @@ function data()
 
       ---@type BalancingData
       local balancingData = balancing.data
-      balancingData._multipliers = defaultSettings.multipliers
+      balancingData._multipliers = settingsObj.settings.multipliers
 
       ---@param fileName string the name of the .mdl file which is loaded
       ---@param data any the data returned from the data function in the mdl file

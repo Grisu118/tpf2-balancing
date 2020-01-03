@@ -6,6 +6,7 @@ local docsReadmeContent = [[
 # Documentation
 
 * [TPF2 Balancing](../Readme.md)
+* [Settings](./Settings.md)
 * Changed Data
   * [Available Modifications](./DataContent.md)
   * Vanilla
@@ -313,6 +314,7 @@ writeFile("docs/docpress.json", [[
 print("Copy static files")
 fileUtil.copyFile("docSrc/assets/custom.css", "docs/assets/custom.css")
 fileUtil.copyFile("docSrc/DataContent.md", "docs/DataContent.md")
+fileUtil.copyFile("docSrc/Settings.md", "docs/Settings.md")
 
 local vanillaData = loadData("res/scripts/grisu_correctiontorealvalues/data/vanilla")
 local modData = loadData("res/scripts/grisu_correctiontorealvalues/data/mods")

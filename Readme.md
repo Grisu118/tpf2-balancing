@@ -3,20 +3,22 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/kdbxk701fbyjfo9d/branch/master?svg=true)](https://ci.appveyor.com/project/Grisu118/tpf2-balancing/branch/master)
 
 This is a script modification for [Transport Fever 2](https://www.transportfever2.com/),
-the aim of this mod is to use real values for capacity, power...
+the aim of this mod is to use real values for capacity, power ...
 
-This mod can be activated and deactivated at any time.
+This mod can be activated or deactivated at any time.
 
 ### Active features
-* passenger capacity set to real values (balancing ongoing)
-* loadSpeed
-* availabilities
-* lifespan
+* capacity modifications
+* loadSpeed modifications
+* availabilities modifications
+* lifespan modifications
 
-### Planned features
-* engine values modifications
-* emission modifications
-* ...
+### Missing features
+* engine values modifications (other than rail vehicle)
+
+### Changes
+
+You can find a list of all changes made by this mod [here](https://grisu118.github.io/tpf2-balancing/data/vanilla/train.html)
 
 ## Installation
 
