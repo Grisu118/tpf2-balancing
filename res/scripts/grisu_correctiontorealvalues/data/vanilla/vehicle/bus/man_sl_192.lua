@@ -10,7 +10,7 @@ return {
       yearTo = 2020,
     }
   },
-  loadConfigs = {
+  capacities = {
     -- Real: 45+61 Passagiere (zu hoch)
     passengers = 31
   },

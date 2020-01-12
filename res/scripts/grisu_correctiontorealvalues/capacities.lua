@@ -39,7 +39,7 @@ function Capacities:updateCompartments(transportVehicle)
             for _, compartment3 in ipairs(compartment2) do
               if type(compartment3) == "table" and compartment3.capacity then
                 compartment3.capacity = self:selectCapacity(compartment3.capacity,
-                    transportVehicle.carrier, compartment3.type)
+                  transportVehicle.carrier, compartment3.type)
               end
             end
           end
@@ -60,7 +60,7 @@ function Capacities:updateCompartmentLists(transportVehicle)
             for _, cargoEntry in ipairs(loadConfig.cargoEntries) do
               if type(cargoEntry) == "table" and cargoEntry.capacity then
                 cargoEntry.capacity = self:selectLoadConfigCapacity(cargoEntry.capacity,
-                    transportVehicle.carrier, cargoEntry.type, index)
+                  transportVehicle.carrier, cargoEntry.type, index)
               end
             end
           end
@@ -114,9 +114,11 @@ function Capacities:selectCapacity(originalCapacity, carrier, loadType)
     -- model specific override
     local modelConfig = self.balancingData[self.modelName]
     if type(modelConfig.capacities) == "table" then
-      -- TODO support _all key as fallback for type
       if modelConfig.capacities[loadType] then
         return modelConfig.capacities[loadType] * multiplier
+      end
+      if modelConfig.capacities._all then
+        return modelConfig.capacities._all * multiplier
       end
     end
   end
@@ -136,21 +138,21 @@ function Capacities:selectLoadConfigCapacity(originalCapacity, carrier, loadType
   if self.balancingData[self.modelName] then
     -- model specific override
     local modelConfig = self.balancingData[self.modelName]
-    if type(modelConfig.loadConfigs) == "table" then
-      if modelConfig.loadConfigs[loadType] then
-        if type(modelConfig.loadConfigs[loadType]) == "table" and modelConfig.loadConfigs[loadType][index] then
-          return modelConfig.loadConfigs[loadType][index] * multiplier
+    if type(modelConfig.capacities) == "table" then
+      if modelConfig.capacities[loadType] then
+        if type(modelConfig.capacities[loadType]) == "table" and modelConfig.capacities[loadType][index] then
+          return modelConfig.capacities[loadType][index] * multiplier
         end
-        if modelConfig.loadConfigs[loadType] then
-          return modelConfig.loadConfigs[loadType] * multiplier
+        if modelConfig.capacities[loadType] then
+          return modelConfig.capacities[loadType] * multiplier
         end
       end
-      if modelConfig.loadConfigs._all then
-        if type(modelConfig.loadConfigs._all) == "table" and modelConfig.loadConfigs._all[index] then
-          return modelConfig.loadConfigs._all[index] * multiplier
+      if modelConfig.capacities._all then
+        if type(modelConfig.capacities._all) == "table" and modelConfig.capacities._all[index] then
+          return modelConfig.capacities._all[index] * multiplier
         end
-        if modelConfig.loadConfigs._all then
-          return modelConfig.loadConfigs._all * multiplier
+        if modelConfig.capacities._all then
+          return modelConfig.capacities._all * multiplier
         end
       end
     end

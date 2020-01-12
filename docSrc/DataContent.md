@@ -30,7 +30,7 @@ return {
       lifespan = 29568 -- lifespan as it is in the game
     }
   },
-  loadConfigs = { -- can also be an array, if there are multiple entries
+  capacities = { -- can also be an array, if there are multiple entries
     -- Real: 70 seats, 30 standing
     passengers = 80, -- specific config for passengers
     coal = 55, -- specific config for coal
@@ -62,7 +62,4 @@ The capacities block cannot be an array (only in metadata it can), if the origin
 The capacity of each compartment is set to the value given in capacities. In this case the metadata.capacities.type must be an array.
 Otherwise the documentation shows wrong values.
 [Example](https://github.com/Grisu118/tpf2-balancing/blob/master/res/scripts/grisu_correctiontorealvalues/data/vanilla/vehicle/plane/bristol_freighter.lua)
-
-### LoadConfigs
-
-[Example](https://github.com/Grisu118/tpf2-balancing/blob/master/res/scripts/grisu_correctiontorealvalues/data/vanilla/vehicle/plane/junkers_ju_52.lua)
+[Example multiple configs](https://github.com/Grisu118/tpf2-balancing/blob/master/res/scripts/grisu_correctiontorealvalues/data/vanilla/vehicle/plane/junkers_ju_52.lua)

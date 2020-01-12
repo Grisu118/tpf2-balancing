@@ -10,7 +10,7 @@ return {
       yearTo = 0,
     }
   },
-  loadConfigs = {
+  capacities = {
     -- Real:
     -- sitting 37, idle 2+6
     passengers = 45
