@@ -118,7 +118,10 @@ local function generateMdCell(typeData, header)
     for k in pairs(data.capacities) do
       local newCap = data.capacities[k]
       local origCap = data.metadata.capacities[k]
-      if type(origCap) == "table" then
+      if type(newCap) == "table" and type(origCap) == "table" then
+        newCap = sumArray(newCap)
+        origCap = sumArray(origCap)
+      elseif type(origCap) == "table" then
         newCap = newCap * #origCap
         origCap = sumArray(origCap)
       end
@@ -156,7 +159,7 @@ local function generateMdCell(typeData, header)
   end
   if header == "Weight" and vehicleConfig.weight then
     return content .. tostring(vehicleConfig.weight) ..
-        "t [" .. tostring(vehicleMeta.topSpeed) .. "]"
+        "t [" .. tostring(vehicleMeta.weight) .. "]"
   end
   if header == "Engines" and vehicleConfig.engines then
     local rows = ""
