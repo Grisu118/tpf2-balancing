@@ -173,7 +173,8 @@ local function checkMod(file)
         assert.are.equals("string", type(data.metadata.source.other))
       end)
       it("data.metadata.source.other is url", function()
-        assert.is_true(stringUtil.startsWith(data.metadata.source.other, "https://") or stringUtil.startsWith(data.metadata.source.other, "http://"))
+        assert.is_true(stringUtil.startsWith(data.metadata.source.other, "https://")
+          or stringUtil.startsWith(data.metadata.source.other, "http://"))
         oneSet = true
       end)
     end

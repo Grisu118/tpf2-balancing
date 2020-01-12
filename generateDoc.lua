@@ -65,7 +65,16 @@ local function generateTocFromData(data, baseIntend, type)
   return tocString
 end
 
-local headers = { "Vehicle", "Source", "Availability", "Lifespan", "Load Speed", "Capacity", "Top Speed", "Weight", "Engines" }
+local headers = { "Vehicle",
+                  "Source",
+                  "Availability",
+                  "Lifespan",
+                  "Load Speed",
+                  "Capacity",
+                  "Top Speed",
+                  "Weight",
+                  "Engines"
+}
 
 local function humanReadableLifespan(lifespan)
   if lifespan > 1000 then
@@ -91,10 +100,12 @@ local function generateMdCell(typeData, header)
   end
   if header == "Source" then
     if data.metadata.source.tpfnet then
-      content = content .. "[TPF.net](https://www.transportfever.net/filebase/index.php/Entry/" .. tostring(data.metadata.source.tpfnet) .. ") "
+      content = content .. "[TPF.net](https://www.transportfever.net/filebase/index.php/Entry/" ..
+        tostring(data.metadata.source.tpfnet) .. ") "
     end
     if data.metadata.source.steam then
-      content = content .. "[Steam](https://steamcommunity.com/sharedfiles/filedetails/?id=" .. tostring(data.metadata.source.steam) .. ") "
+      content = content .. "[Steam](https://steamcommunity.com/sharedfiles/filedetails/?id=" ..
+        tostring(data.metadata.source.steam) .. ") "
     end
     if data.metadata.source.other then
       content = content .. "[Other](" .. tostring(data.metadata.source.other) .. ") "

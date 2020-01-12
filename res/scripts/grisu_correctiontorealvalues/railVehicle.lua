@@ -20,7 +20,7 @@ function RailVehicle.create(modelName, balancingData)
   cap.balancingData = balancingData
   return cap
 end
-
+-- TODO Handle other vehicles
 ---@public
 ---@param railVehicle table
 function RailVehicle:update(railVehicle)
