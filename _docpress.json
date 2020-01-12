@@ -72,11 +72,6 @@
                     "title": "Capacities",
                     "depth": 3,
                     "id": "capacities"
-                  },
-                  {
-                    "title": "LoadConfigs",
-                    "depth": 3,
-                    "id": "loadconfigs"
                   }
                 ]
               }
@@ -86,10 +81,10 @@
             "title": "Vanilla",
             "sections": [
               {
-                "title": "Train",
-                "source": "docs/data/vanilla/train.md",
-                "url": "data/vanilla/train.html",
-                "slug": "datavanillatrain"
+                "title": "Tram",
+                "source": "docs/data/vanilla/tram.md",
+                "url": "data/vanilla/tram.html",
+                "slug": "datavanillatram"
               },
               {
                 "title": "Bus",
@@ -102,6 +97,12 @@
                 "source": "docs/data/vanilla/plane.md",
                 "url": "data/vanilla/plane.html",
                 "slug": "datavanillaplane"
+              },
+              {
+                "title": "Train",
+                "source": "docs/data/vanilla/train.md",
+                "url": "data/vanilla/train.html",
+                "slug": "datavanillatrain"
               }
             ]
           },
@@ -181,21 +182,16 @@
               "title": "Capacities",
               "depth": 3,
               "id": "capacities"
-            },
-            {
-              "title": "LoadConfigs",
-              "depth": 3,
-              "id": "loadconfigs"
             }
           ]
         }
       ]
     },
-    "data/vanilla/train.html": {
-      "source": "docs/data/vanilla/train.md",
-      "title": "Train - TPF2 Balancing",
-      "pageTitle": "Train",
-      "slug": "datavanillatrain"
+    "data/vanilla/tram.html": {
+      "source": "docs/data/vanilla/tram.md",
+      "title": "Tram - TPF2 Balancing",
+      "pageTitle": "Tram",
+      "slug": "datavanillatram"
     },
     "data/vanilla/bus.html": {
       "source": "docs/data/vanilla/bus.md",
@@ -208,15 +204,22 @@
       "title": "Plane - TPF2 Balancing",
       "pageTitle": "Plane",
       "slug": "datavanillaplane"
+    },
+    "data/vanilla/train.html": {
+      "source": "docs/data/vanilla/train.md",
+      "title": "Train - TPF2 Balancing",
+      "pageTitle": "Train",
+      "slug": "datavanillatrain"
     }
   },
   "sources": {
     "Readme.md": "index.html",
     "docs/Settings.md": "Settings.html",
     "docs/DataContent.md": "DataContent.html",
-    "docs/data/vanilla/train.md": "data/vanilla/train.html",
+    "docs/data/vanilla/tram.md": "data/vanilla/tram.html",
     "docs/data/vanilla/bus.md": "data/vanilla/bus.html",
     "docs/data/vanilla/plane.md": "data/vanilla/plane.html",
+    "docs/data/vanilla/train.md": "data/vanilla/train.html",
     "docs/docpress.json": "docpress.json",
     "docs/assets/custom.css": "assets/custom.css"
   }

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="assets/style.css?t=90051322">
-    <link rel="stylesheet" href="assets/custom.css?t=60a5e5bc">
+    <link rel="stylesheet" href="assets/custom.css?t=de8bcfbc">
     <script src="assets/script.js?t=93f1a66c"></script>
     <title>Available Modifications - TPF2 Balancing</title>
     <meta name="viewport" content="width=device-width">
@@ -27,19 +27,19 @@
                         <ul class="heading-list -depth-2">
                           <li class="heading-item -depth-3"><a class="hlink link-capacities" href="#capacities">Capacities</a>
                           </li>
-                          <li class="heading-item -depth-3"><a class="hlink link-loadconfigs" href="#loadconfigs">LoadConfigs</a>
-                          </li>
                         </ul>
                       </li>
                     </ul>
                   </li>
                   <li class="menu-item -level-2 -parent"><span class="title">Vanilla</span>
                     <ul class="submenu">
-                      <li class="menu-item -level-3"><a class="link title  link-datavanillatrain" href="data/vanilla/train.html">Train</a>
+                      <li class="menu-item -level-3"><a class="link title  link-datavanillatram" href="data/vanilla/tram.html">Tram</a>
                       </li>
                       <li class="menu-item -level-3"><a class="link title  link-datavanillabus" href="data/vanilla/bus.html">Bus</a>
                       </li>
                       <li class="menu-item -level-3"><a class="link title  link-datavanillaplane" href="data/vanilla/plane.html">Plane</a>
+                      </li>
+                      <li class="menu-item -level-3"><a class="link title  link-datavanillatrain" href="data/vanilla/train.html">Train</a>
                       </li>
                     </ul>
                   </li>
@@ -86,7 +86,7 @@ The following file shows all possible values. See the comments in the file for d
       lifespan = <span class="hljs-number">29568</span> <span class="pl-c">-- lifespan as it is in the game</span>
     }
   },
-  loadConfigs = { <span class="pl-c">-- can also be an array, if there are multiple entries</span>
+  capacities = { <span class="pl-c">-- can also be an array, if there are multiple entries</span>
     <span class="pl-c">-- Real: 70 seats, 30 standing</span>
     passengers = <span class="hljs-number">80</span>, <span class="pl-c">-- specific config for passengers</span>
     coal = <span class="hljs-number">55</span>, <span class="pl-c">-- specific config for coal</span>
@@ -114,14 +114,13 @@ The following file shows all possible values. See the comments in the file for d
 <p>The capacities block cannot be an array (only in metadata it can), if the original vehicle has multiple compartments.
 The capacity of each compartment is set to the value given in capacities. In this case the metadata.capacities.type must be an array.
 Otherwise the documentation shows wrong values.
-<a href="https://github.com/Grisu118/tpf2-balancing/blob/master/res/scripts/grisu_correctiontorealvalues/data/vanilla/vehicle/plane/bristol_freighter.lua">Example</a></p>
-<h3 id="loadconfigs">LoadConfigs</h3>
-<p><a href="https://github.com/Grisu118/tpf2-balancing/blob/master/res/scripts/grisu_correctiontorealvalues/data/vanilla/vehicle/plane/junkers_ju_52.lua">Example</a></p>
+<a href="https://github.com/Grisu118/tpf2-balancing/blob/master/res/scripts/grisu_correctiontorealvalues/data/vanilla/vehicle/plane/bristol_freighter.lua">Example</a>
+<a href="https://github.com/Grisu118/tpf2-balancing/blob/master/res/scripts/grisu_correctiontorealvalues/data/vanilla/vehicle/plane/junkers_ju_52.lua">Example multiple configs</a></p>
 
         </div>
         <div class="footer-nav">
           <div class="left"><a href="Settings.html"><span class="title">Settings</span></a></div>
-          <div class="right"><a href="data/vanilla/train.html"><span class="label">Next: </span><span class="title">Train</span></a></div>
+          <div class="right"><a href="data/vanilla/tram.html"><span class="label">Next: </span><span class="title">Tram</span></a></div>
         </div>
       </div>
     </div>
