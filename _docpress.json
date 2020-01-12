@@ -107,7 +107,15 @@
             ]
           },
           {
-            "title": "Mods"
+            "title": "Mods",
+            "sections": [
+              {
+                "title": "Plane",
+                "source": "docs/data/mods/plane.md",
+                "url": "data/mods/plane.html",
+                "slug": "datamodsplane"
+              }
+            ]
           }
         ]
       }
@@ -210,6 +218,12 @@
       "title": "Train - TPF2 Balancing",
       "pageTitle": "Train",
       "slug": "datavanillatrain"
+    },
+    "data/mods/plane.html": {
+      "source": "docs/data/mods/plane.md",
+      "title": "Plane - TPF2 Balancing",
+      "pageTitle": "Plane",
+      "slug": "datamodsplane"
     }
   },
   "sources": {
@@ -220,6 +234,7 @@
     "docs/data/vanilla/bus.md": "data/vanilla/bus.html",
     "docs/data/vanilla/plane.md": "data/vanilla/plane.html",
     "docs/data/vanilla/train.md": "data/vanilla/train.html",
+    "docs/data/mods/plane.md": "data/mods/plane.html",
     "docs/docpress.json": "docpress.json",
     "docs/assets/custom.css": "assets/custom.css"
   }
