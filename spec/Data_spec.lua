@@ -1,4 +1,5 @@
 local fileUtil = require("..util.file")
+---@type StringUtil
 local stringUtil = require("..util.string")
 
 local function checkFile(file)
@@ -146,6 +147,42 @@ local function checkFile(file)
   end)
 end
 
+local function checkMod(file)
+  describe("mods", function()
+    local f = loadfile(file)
+    local data = f()
+    it("data.metadata.source is table", function()
+      assert.are.equals("table", type(data.metadata.source))
+    end)
+    -- at least one source is set
+    local oneSet = false
+    if data.metadata.source.steam then
+      it("data.metadata.source.steam is number", function()
+        assert.are.equals("number", type(data.metadata.source.steam))
+        oneSet = true
+      end)
+    end
+    if data.metadata.source.tpfnet then
+      it("data.metadata.source.tpfnet is number", function()
+        assert.are.equals("number", type(data.metadata.source.tpfnet))
+        oneSet = true
+      end)
+    end
+    if data.metadata.source.other then
+      it("data.metadata.source.other is string", function()
+        assert.are.equals("string", type(data.metadata.source.other))
+      end)
+      it("data.metadata.source.other is url", function()
+        assert.is_true(stringUtil.startsWith(data.metadata.source.other, "https://") or stringUtil.startsWith(data.metadata.source.other, "http://"))
+        oneSet = true
+      end)
+    end
+    it("data.metadata.source at least one source is set", function()
+      assert.is_true(oneSet)
+    end)
+  end)
+end
+
 describe("Data files contains all necessary information", function()
   describe("Vanilla", function()
     local files = fileUtil.dirLookup("res/scripts/grisu_correctiontorealvalues/data/vanilla")
@@ -160,6 +197,7 @@ describe("Data files contains all necessary information", function()
     for _, file in ipairs(files) do
       if stringUtil.endsWith(file, ".lua") then
         checkFile(file)
+        checkMod(file)
       end
     end
   end)

@@ -60,12 +60,12 @@ local function generateTocFromData(data, baseIntend, type)
   local tocString = ""
   for vehicleType, _ in pairs(data) do
     tocString = tocString .. baseIntend .. "* [" ..
-        stringUtil.firstToUpper(vehicleType) .. "]" .. "(data/" .. type .. "/" .. vehicleType .. ".md)" .. "\n"
+      stringUtil.firstToUpper(vehicleType) .. "]" .. "(data/" .. type .. "/" .. vehicleType .. ".md)" .. "\n"
   end
   return tocString
 end
 
-local headers = { "Vehicle", "Availability", "Lifespan", "Load Speed", "Capacity", "Top Speed", "Weight", "Engines" }
+local headers = { "Vehicle", "Source", "Availability", "Lifespan", "Load Speed", "Capacity", "Top Speed", "Weight", "Engines" }
 
 local function humanReadableLifespan(lifespan)
   if lifespan > 1000 then
@@ -86,8 +86,20 @@ local function generateMdCell(typeData, header)
   local content = "| "
   local data = typeData.data
   if header == "Vehicle" then
-    return content .. "[".. data.metadata.name ..
-        "](https://github.com/Grisu118/tpf2-balancing/blob/master/" .. typeData.file .. ")"
+    return content .. "[" .. data.metadata.name ..
+      "](https://github.com/Grisu118/tpf2-balancing/blob/master/" .. typeData.file .. ")"
+  end
+  if header == "Source" then
+    if data.metadata.source.tpfnet then
+      content = content .. "[TPF.net](https://www.transportfever.net/filebase/index.php/Entry/" .. tostring(data.metadata.source.tpfnet) .. ") "
+    end
+    if data.metadata.source.steam then
+      content = content .. "[Steam](https://steamcommunity.com/sharedfiles/filedetails/?id=" .. tostring(data.metadata.source.steam) .. ") "
+    end
+    if data.metadata.source.other then
+      content = content .. "[Other](" .. tostring(data.metadata.source.other) .. ") "
+    end
+    return content
   end
   if header == "Availability" and data.availability then
     local yearFrom = data.availability.yearFrom
@@ -111,7 +123,7 @@ local function generateMdCell(typeData, header)
   end
   if header == "Lifespan" and data.maintenance and data.maintenance.lifespan then
     return content .. humanReadableLifespan(data.maintenance.lifespan) ..
-        "y [" .. humanReadableLifespan(data.metadata.maintenance.lifespan) .. "]"
+      "y [" .. humanReadableLifespan(data.metadata.maintenance.lifespan) .. "]"
   end
   if header == "Capacity" and data.capacities then
     local rows = ""
@@ -155,11 +167,11 @@ local function generateMdCell(typeData, header)
   end
   if header == "Top Speed" and vehicleConfig.topSpeed then
     return content .. tostring(vehicleConfig.topSpeed) ..
-        "km/h [" .. tostring(vehicleMeta.topSpeed * 3.6) .. "]"
+      "km/h [" .. tostring(vehicleMeta.topSpeed * 3.6) .. "]"
   end
   if header == "Weight" and vehicleConfig.weight then
     return content .. tostring(vehicleConfig.weight) ..
-        "t [" .. tostring(vehicleMeta.weight) .. "]"
+      "t [" .. tostring(vehicleMeta.weight) .. "]"
   end
   if header == "Engines" and vehicleConfig.engines then
     local rows = ""
@@ -167,23 +179,23 @@ local function generateMdCell(typeData, header)
     if vehicleConfig.engines.power or vehicleConfig.engines.tractiveEffort then
       if vehicleConfig.engines.power then
         rows = rows .. "Power: " .. tostring(vehicleConfig.engines.power) ..
-            " [" .. tostring(vehicleMeta.engines.power) .. "]</br>"
+          " [" .. tostring(vehicleMeta.engines.power) .. "]</br>"
       end
       if vehicleConfig.engines.tractiveEffort then
         rows = rows .. "<span title=\"tractive effort\">TrEffort</span>: " ..
-            tostring(vehicleConfig.engines.tractiveEffort) ..
-            " [" .. tostring(vehicleMeta.engines.tractiveEffort) .. "]</br>"
+          tostring(vehicleConfig.engines.tractiveEffort) ..
+          " [" .. tostring(vehicleMeta.engines.tractiveEffort) .. "]</br>"
       end
     else
       for i, engine in ipairs(vehicleConfig.engines) do
         if engine.power then
           rows = rows .. "Power: " .. tostring(engine.power) ..
-              " [" .. tostring(vehicleMeta.engines[i].power) .. "]</br>"
+            " [" .. tostring(vehicleMeta.engines[i].power) .. "]</br>"
         end
         if engine.tractiveEffort then
           rows = rows .. "<span title=\"tractive effort\">TrEffort</span>: " ..
-              tostring(engine.tractiveEffort) ..
-              " [" .. tostring(vehicleMeta.engines[i].tractiveEffort) .. "]</br>"
+            tostring(engine.tractiveEffort) ..
+            " [" .. tostring(vehicleMeta.engines[i].tractiveEffort) .. "]</br>"
         end
       end
     end
@@ -192,15 +204,17 @@ local function generateMdCell(typeData, header)
   return content
 end
 
-local function generateMdTable(typeData)
+local function generateMdTable(typeData, isMod)
   local headersTable = {
     vehicle = {}
   }
+  if isMod then
+    headersTable.source = {}
+  end
 
   -- find out necessary headers
   for _, v in pairs(typeData) do
     local data = v.data
-
     if data.availability and not headersTable.availability then
       headersTable.availability = {}
     end
@@ -286,7 +300,7 @@ local function generateDataFiles(data, type)
   for vehicleType, typeData in pairs(data) do
     writeFile(basePath .. "/" .. vehicleType .. ".md", stringUtil.templateString(typePageContent, {
       vehicleType = stringUtil.firstToUpper(vehicleType),
-      table = generateMdTable(typeData)
+      table = generateMdTable(typeData, type == "mods")
     }))
   end
 end

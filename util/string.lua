@@ -1,3 +1,4 @@
+---@class StringUtil
 local stringUtil = {}
 
 function stringUtil.firstToUpper(str)
@@ -6,6 +7,10 @@ end
 
 function stringUtil.endsWith(str, ending)
   return ending == "" or str:sub(-#ending) == ending
+end
+
+function stringUtil.startsWith(str, start)
+  return str:sub(1, #start) == start
 end
 
 ---@param str string @the string to template, variables should be written as {{ var }}
