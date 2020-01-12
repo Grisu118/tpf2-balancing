@@ -159,7 +159,7 @@ local function generateMdCell(typeData, header)
   end
   if header == "Weight" and vehicleConfig.weight then
     return content .. tostring(vehicleConfig.weight) ..
-        "t [" .. tostring(vehicleMeta.topSpeed) .. "]"
+        "t [" .. tostring(vehicleMeta.weight) .. "]"
   end
   if header == "Engines" and vehicleConfig.engines then
     local rows = ""
