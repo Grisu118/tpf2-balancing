@@ -114,6 +114,12 @@
                 "source": "docs/data/mods/plane.md",
                 "url": "data/mods/plane.html",
                 "slug": "datamodsplane"
+              },
+              {
+                "title": "Tram",
+                "source": "docs/data/mods/tram.md",
+                "url": "data/mods/tram.html",
+                "slug": "datamodstram"
               }
             ]
           }
@@ -224,6 +230,12 @@
       "title": "Plane - TPF2 Balancing",
       "pageTitle": "Plane",
       "slug": "datamodsplane"
+    },
+    "data/mods/tram.html": {
+      "source": "docs/data/mods/tram.md",
+      "title": "Tram - TPF2 Balancing",
+      "pageTitle": "Tram",
+      "slug": "datamodstram"
     }
   },
   "sources": {
@@ -235,6 +247,7 @@
     "docs/data/vanilla/plane.md": "data/vanilla/plane.html",
     "docs/data/vanilla/train.md": "data/vanilla/train.html",
     "docs/data/mods/plane.md": "data/mods/plane.html",
+    "docs/data/mods/tram.md": "data/mods/tram.html",
     "docs/docpress.json": "docpress.json",
     "docs/assets/custom.css": "assets/custom.css"
   }
