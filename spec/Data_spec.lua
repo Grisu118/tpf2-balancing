@@ -154,6 +154,9 @@ local function checkMod(file)
     it("data.metadata.source is table", function()
       assert.are.equals("table", type(data.metadata.source))
     end)
+    if not data.metadata.source then
+      return
+    end
     -- at least one source is set
     local oneSet = false
     if data.metadata.source.steam then
@@ -180,6 +183,12 @@ local function checkMod(file)
     end
     it("data.metadata.source at least one source is set", function()
       assert.is_true(oneSet)
+    end)
+    it("data.metadata.source contains not more than the 3 known keys", function()
+      for key in pairs(data.metadata.source) do
+        assert.message("Not expected key is " .. tostring(key))
+              .is_false(key ~= "steam" and key ~= "tpfnet" and key ~= "other")
+      end
     end)
   end)
 end
