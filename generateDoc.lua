@@ -290,7 +290,11 @@ local function generateMdTable(typeData, isMod)
     if b.data.availability and b.data.availability.yearFrom then
       bFrom = b.data.availability.yearFrom
     end
-    return aFrom < bFrom
+    if aFrom == bFrom then
+      return a.data.metadata.name < b.data.metadata.name
+    else
+      return aFrom < bFrom
+    end
   end)
 
   for _, data in ipairs(dataArray) do

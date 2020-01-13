@@ -1,6 +1,6 @@
 return {
   metadata = {
-    name = "Be 4/6 VBZ Linie 3",
+    name = "Be 4/6 VBZ Linie 03",
     loadSpeed = 7,
     capacities = {
       passengers = 108
