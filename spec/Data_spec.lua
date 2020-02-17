@@ -81,14 +81,8 @@ local function checkFile(file)
         assert.are.equals("table", type(data.metadata.capacities))
       end)
     end
-    if data.loadConfigs then
-      it("data.loadConfigs is a table", function()
-        assert.are.equals("table", type(data.loadConfigs))
-      end)
-      it("data.metadata.capacities is a table", function()
-        assert.are.equals("table", type(data.metadata.capacities))
-      end)
-    end
+    -- ensure old key is no longer used
+    assert.are.equals(data.loadConfigs, nil)
     if data.railVehicle then
       it("data.railVehicle is a table", function()
         assert.are.equals("table", type(data.railVehicle))
