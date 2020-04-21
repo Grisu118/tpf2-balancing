@@ -1,0 +1,56 @@
+area/repo:
+  - ./*
+  - .github/*
+  - .github/**/*
+
+area/test:
+  - spec/*
+  - spec/**/*
+
+area/doc:
+  - docSrc/*
+  - docSrc/**/*
+
+area/script:
+  - res/scripts/*.lua
+  - res/scripts/grisu_correctiontorealvalues/*.lua
+  - util/*
+  - util/**/*
+
+area/vanilla:
+  - res/scripts/grisu_correctiontorealvalues/data/vanilla/*
+  - res/scripts/grisu_correctiontorealvalues/data/vanilla/**/*
+
+area/mods:
+  - res/scripts/grisu_correctiontorealvalues/data/mods/*
+  - res/scripts/grisu_correctiontorealvalues/data/mods/**/*
+
+# Types
+
+type/bus:
+  - res/scripts/grisu_correctiontorealvalues/data/*/bus/*
+  - res/scripts/grisu_correctiontorealvalues/data/*/bus/**/*
+
+type/plane:
+  - res/scripts/grisu_correctiontorealvalues/data/*/plane/*
+  - res/scripts/grisu_correctiontorealvalues/data/*/plane/**/*
+
+type/ship:
+  - res/scripts/grisu_correctiontorealvalues/data/*/ship/*
+  - res/scripts/grisu_correctiontorealvalues/data/*/ship/**/*
+
+type/train:
+  - res/scripts/grisu_correctiontorealvalues/data/*/train/*
+  - res/scripts/grisu_correctiontorealvalues/data/*/train/**/*
+
+type/tram:
+  - res/scripts/grisu_correctiontorealvalues/data/*/tram/*
+  - res/scripts/grisu_correctiontorealvalues/data/*/tram/**/*
+
+type/truck:
+  - res/scripts/grisu_correctiontorealvalues/data/*/truck/*
+  - res/scripts/grisu_correctiontorealvalues/data/*/truck/**/*
+
+type/waggon:
+  - res/scripts/grisu_correctiontorealvalues/data/*/waggon/*
+  - res/scripts/grisu_correctiontorealvalues/data/*/waggon/**/*
