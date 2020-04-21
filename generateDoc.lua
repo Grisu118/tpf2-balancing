@@ -141,6 +141,9 @@ local function generateMdCell(typeData, header)
     for k in pairs(data.capacities) do
       local newCap = data.capacities[k]
       local origCap = data.metadata.capacities[k]
+      if origCap == nil then
+        origCap = data.metadata.capacities._all
+      end
       if type(newCap) == "table" and type(origCap) == "table" then
         newCap = sumArray(newCap)
         origCap = sumArray(origCap)
@@ -157,6 +160,9 @@ local function generateMdCell(typeData, header)
     for k in pairs(data.loadConfigs) do
       local newCap = data.loadConfigs[k]
       local origCap = data.metadata.capacities[k]
+      if origCap == nil then
+        origCap = data.metadata.capacities._all
+      end
       if type(newCap) == "table" then
         newCap = sumArray(newCap)
         origCap = sumArray(origCap)
