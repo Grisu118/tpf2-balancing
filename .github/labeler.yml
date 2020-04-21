@@ -28,29 +28,43 @@ area/mods:
 # Types
 
 type/bus:
-  - res/scripts/grisu_correctiontorealvalues/data/*/bus/*
-  - res/scripts/grisu_correctiontorealvalues/data/*/bus/**/*
+  - res/scripts/grisu_correctiontorealvalues/data/vanilla/vehicle/bus/*
+  - res/scripts/grisu_correctiontorealvalues/data/vanilla/vehicle/bus/**/*
+  - res/scripts/grisu_correctiontorealvalues/data/mods/vehicle/bus/*
+  - res/scripts/grisu_correctiontorealvalues/data/mods/vehicle/bus/**/*
 
 type/plane:
-  - res/scripts/grisu_correctiontorealvalues/data/*/plane/*
-  - res/scripts/grisu_correctiontorealvalues/data/*/plane/**/*
+  - res/scripts/grisu_correctiontorealvalues/data/vanilla/vehicle/plane/*
+  - res/scripts/grisu_correctiontorealvalues/data/vanilla/vehicle/plane/**/*
+  - res/scripts/grisu_correctiontorealvalues/data/mods/vehicle/plane/*
+  - res/scripts/grisu_correctiontorealvalues/data/mods/vehicle/plane/**/*
 
 type/ship:
-  - res/scripts/grisu_correctiontorealvalues/data/*/ship/*
-  - res/scripts/grisu_correctiontorealvalues/data/*/ship/**/*
+  - res/scripts/grisu_correctiontorealvalues/data/vanilla/vehicle/ship/*
+  - res/scripts/grisu_correctiontorealvalues/data/vanilla/vehicle/ship/**/*
+  - res/scripts/grisu_correctiontorealvalues/data/mods/vehicle/ship/*
+  - res/scripts/grisu_correctiontorealvalues/data/mods/vehicle/ship/**/*
 
 type/train:
-  - res/scripts/grisu_correctiontorealvalues/data/*/train/*
-  - res/scripts/grisu_correctiontorealvalues/data/*/train/**/*
+  - res/scripts/grisu_correctiontorealvalues/data/vanilla/vehicle/train/*
+  - res/scripts/grisu_correctiontorealvalues/data/vanilla/vehicle/train/**/*
+  - res/scripts/grisu_correctiontorealvalues/data/mods/vehicle/train/*
+  - res/scripts/grisu_correctiontorealvalues/data/mods/vehicle/train/**/*
 
 type/tram:
-  - res/scripts/grisu_correctiontorealvalues/data/*/tram/*
-  - res/scripts/grisu_correctiontorealvalues/data/*/tram/**/*
+  - res/scripts/grisu_correctiontorealvalues/data/vanilla/vehicle/tram/*
+  - res/scripts/grisu_correctiontorealvalues/data/vanilla/vehicle/tram/**/*
+  - res/scripts/grisu_correctiontorealvalues/data/mods/vehicle/tram/*
+  - res/scripts/grisu_correctiontorealvalues/data/mods/vehicle/tram/**/*
 
 type/truck:
-  - res/scripts/grisu_correctiontorealvalues/data/*/truck/*
-  - res/scripts/grisu_correctiontorealvalues/data/*/truck/**/*
+  - res/scripts/grisu_correctiontorealvalues/data/vanilla/vehicle/truck/*
+  - res/scripts/grisu_correctiontorealvalues/data/vanilla/vehicle/truck/**/*
+  - res/scripts/grisu_correctiontorealvalues/data/mods/vehicle/truck/*
+  - res/scripts/grisu_correctiontorealvalues/data/mods/vehicle/truck/**/*
 
 type/waggon:
-  - res/scripts/grisu_correctiontorealvalues/data/*/waggon/*
-  - res/scripts/grisu_correctiontorealvalues/data/*/waggon/**/*
+  - res/scripts/grisu_correctiontorealvalues/data/vanilla/vehicle/waggon/*
+  - res/scripts/grisu_correctiontorealvalues/data/vanilla/vehicle/waggon/**/*
+  - res/scripts/grisu_correctiontorealvalues/data/mods/vehicle/waggon/*
+  - res/scripts/grisu_correctiontorealvalues/data/mods/vehicle/waggon/**/*
